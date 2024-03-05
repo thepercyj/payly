@@ -21,6 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('register/', include('register.urls')),
+    path('payapp/', include('payapp.urls')),
     path('admin/', admin.site.urls),
 
 ]
