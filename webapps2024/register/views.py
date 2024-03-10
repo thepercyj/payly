@@ -6,8 +6,8 @@ from django.contrib.messages import error, get_messages
 from django.contrib.auth.models import User
 
 
-def base(request):
-    return render(request, 'webapps2024/base.html')
+def mainpage(request):
+    return render(request, 'webapps2024/index.html')
 
 
 # Create your views here.

@@ -55,6 +55,22 @@ body {
     line-height: 22px;
 }
 
+.register-background {
+    background-image:url('../img/background-register.png');
+}
+
+.login-background {
+    background-image:url('../img/background-login.jpg');
+}
+
+.main-background-1 {
+    background-image:url('../img/main/main-image-1.jpg');
+}
+
+.main-background-2 {
+    background-image:url('../img/main/main-image-2.jpg');
+}
+
 /*-------- Preloader --------*/
 #preloader {
     position: fixed;
@@ -212,8 +228,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-4 {
-    font-size: 20px !important;
-    font-size: 2rem !important;
+    font-size: 18px !important;
+    font-size: 1.125rem !important;
 }
 
 .text-5 {
