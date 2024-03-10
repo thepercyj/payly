@@ -1,6 +1,5 @@
 {% extends 'payapp/dash-base.html' %}
 {% load static %}
-{% block title %}Transactions | Payly{% endblock %}
 
 {% block content %}
 <div id="content" class="py-4">
@@ -8,64 +7,39 @@
         <div class="row">
             {% include 'payapp/dash-sidebar.html' %}
             <div class="col-lg-9">
-                <h2 class="fw-400 mb-3">Transactions</h2>
 
-                <div class="row">
-                    <div class="col mb-2">
-                        <form id="filterTransactions" method="post">
-                            <div class="row g-3 mb-3">
-
-                                <div class="col-sm-6 col-md-5">
-                                    <div class="position-relative">
-                                        <input id="dateRange" type="text" class="form-control" placeholder="Date Range">
-                                        <span class="icon-inside"><i class="fas fa-calendar-alt"></i></span>
-                                    </div>
-                                </div>
-
-                                <div class="col-auto d-flex align-items-center me-auto form-group" data-bs-toggle="collapse"> <a class="btn-link" data-bs-toggle="collapse" href="#allFilters" aria-expanded="false" aria-controls="allFilters">All Filters<i class="fas fa-sliders-h text-3 ms-1"></i></a> </div>
-
-                                <div class="col-auto d-flex align-items-center ms-auto">
-                                    <div class="dropdown"> <a class="text-muted btn-link" href="#" role="button" id="statements" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-file-download text-3 me-1"></i>Statements</a>
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="statements"> <a class="dropdown-item" href="#">CSV</a> <a class="dropdown-item" href="#">PDF</a> </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 collapse" id="allFilters">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="allTransactions" name="allFilters" checked>
-                                        <label class="form-check-label" for="allTransactions">All Transactions</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="paymentsSend" name="allFilters">
-                                        <label class="form-check-label" for="paymentsSend">Payments Send</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="paymentsReceived" name="allFilters">
-                                        <label class="form-check-label" for="paymentsReceived">Payments Received</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="refunds" name="allFilters">
-                                        <label class="form-check-label" for="refunds">Refunds</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="withdrawal" name="allFilters">
-                                        <label class="form-check-label" for="withdrawal">Withdrawal</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="deposit" name="allFilters">
-                                        <label class="form-check-label" for="deposit">Deposit</label>
-                                    </div>
-                                </div>
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center mb-4">Profile Completeness<span class="border text-success rounded-pill fw-500 text-2 px-3 py-1 ms-2">50%</span></h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row gy-4 profile-completeness">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-mobile-alt"></i></span> <span class="text-5 d-block text-success mt-4 mb-3"><i class="fas fa-check-circle"></i></span>
+                                <p class="mb-0">Mobile Added</p>
                             </div>
-                        </form>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-envelope"></i></span> <span class="text-5 d-block text-success mt-4 mb-3"><i class="fas fa-check-circle"></i></span>
+                                <p class="mb-0">Email Added</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="position-relative border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-credit-card"></i></span> <span class="text-5 d-block text-light mt-4 mb-3"><i class="far fa-circle "></i></span>
+                                <p class="mb-0"><a class="btn-link stretched-link" href="">Add Card</a></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="position-relative border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-university"></i></span> <span class="text-5 d-block text-light mt-4 mb-3"><i class="far fa-circle "></i></span>
+                                <p class="mb-0"><a class="btn-link stretched-link" href="">Add Bank Account</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="bg-white shadow-sm rounded py-4 mb-4">
-                    <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">All Transactions</h3>
+                    <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">Recent Activity</h3>
 
                     <div class="transaction-title py-2 px-4">
-                        <div class="row">
+                        <div class="row fw-00">
                             <div class="col-2 col-sm-1 text-center"><span class="">Date</span></div>
                             <div class="col col-sm-7">Description</div>
                             <div class="col-auto col-sm-2 d-none d-sm-block text-center">Status</div>
@@ -131,7 +105,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="transaction-detail" class="modal fade" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered transaction-details" role="document">
                             <div class="modal-content">
@@ -181,46 +154,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="text-center mt-4"><a href="transactions.html" class="btn-link text-3">View all<i class="fas fa-chevron-right text-2 ms-2"></i></a></div>
 
-                    <ul class="pagination justify-content-center mt-4 mb-0">
-                        <li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a> </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item d-flex align-content-center flex-wrap text-muted text-5 mx-1">......</li>
-                        <li class="page-item"><a class="page-link" href="#">15</a></li>
-                        <li class="page-item"> <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a> </li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    $(function() {
-        'use strict';
-
-        // Date Range Picker
-        $(function() {
-            var start = moment().subtract(29, 'days');
-            var end = moment();
-            function cb(start, end) {
-                $('#dateRange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            }
-            $('#dateRange').daterangepicker({
-                startDate: start,
-                endDate: end,
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                }
-            }, cb);
-            cb(start, end);
-        });
-    });
-</script>
 {% endblock %}

@@ -71,6 +71,10 @@ body {
     background-image:url('../img/main/main-image-2.jpg');
 }
 
+.main-background-3 {
+    background-image:url('../img/main/main-image-3.jpg');
+}
+
 /*-------- Preloader --------*/
 #preloader {
     position: fixed;

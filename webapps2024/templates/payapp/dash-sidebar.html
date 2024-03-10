@@ -1,0 +1,31 @@
+{% load static %}
+<aside class="col-lg-3">
+
+    <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+        <div class="profile-thumb mt-3 mb-4"> <img class="rounded-circle" src="{% static 'img/payapp/profile-pic.jpg'%}" alt="">
+            <div class="profile-thumb-edit bg-primary text-white" data-bs-toggle="tooltip" title="Change Profile Picture"> <i class="fas fa-camera position-absolute"></i>
+                <input type="file" class="custom-file-input" id="customFile">
+            </div>
+        </div>
+        <p class="text-3 fw-500 mb-2">Hello, {{ user.username }}</p>
+        <p class="mb-2"><a href="settings-profile.html" class="text-5 text-light" data-bs-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></a></p>
+    </div>
+
+    <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+        <div class="text-17 text-light my-3"><i class="fas fa-wallet"></i></div>
+        <h3 class="text-9 fw-400">$2956.00</h3>
+        <p class="mb-2 text-muted opacity-8">Available Balance</p>
+        <hr class="mx-n3">
+        <div class="d-flex"><a href="withdraw-money.html" class="btn-link me-auto">Withdraw</a> <a href="deposit-money.html" class="btn-link ms-auto">Deposit</a></div>
+    </div>
+
+    <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+        <div class="text-17 text-light my-3"><i class="fas fa-comments"></i></div>
+        <h3 class="text-5 fw-400 my-4">Need Help?</h3>
+        <p class="text-muted opacity-8 mb-4">Have questions or concerns regrading your account?<br>
+            Our experts are here to help!.</p>
+        <div class="d-grid"><a href="#" class="btn btn-primary">Chat with Us</a></div>
+    </div>
+
+
+</aside>

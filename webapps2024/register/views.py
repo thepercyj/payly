@@ -6,18 +6,7 @@ from django.contrib.messages import error, get_messages
 from django.contrib.auth.models import User
 
 
-def mainpage(request):
-    return render(request, 'webapps2024/index.html')
-
-
 # Create your views here.
-
-# Adding a superuser account to manage the project.
-def add_superuser():
-    if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser(username='admin', password='webapps2024')
-
-
 # View logic for register users.
 def register_user(request):
     add_superuser()
@@ -43,7 +32,7 @@ def login(request):
             users = authenticate(username=username, password=password)
             if users is not None:
                 auth_login(request, users)
-                return HttpResponseRedirect('/')
+                return HttpResponseRedirect('/webapps2024/payapp/')
             else:
                 error(request, 'Invalid username or password')
 
@@ -59,3 +48,10 @@ def login(request):
                'form': form, 'messages': message_store}
     message_store.used = True
     return render(request, 'register/login.html', context)
+
+
+# Adding a superuser account to manage the project.
+def add_superuser():
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser(username='admin', password='webapps2024')
+

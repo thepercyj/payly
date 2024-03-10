@@ -49,31 +49,30 @@ class RegistrationForm(forms.Form):
 
     def __init__(self, is_superuser: bool = False, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        self.validate_clear_data = None
         self.is_superuser = is_superuser
 
     # Adding custom clear function for form validations
 
-    def validate_clear(self):
-        validate_clear_data = super().clean()
+    def clean(self):
+        cleaned_data = super().clean()
 
         # Checks if the password entered by the user twice is same or not.
-        password = validate_clear_data.get('password')
-        confirm_password = validate_clear_data.get('confirm_password')
+        password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
 
         # print error stating passwords do not match.
         if password != confirm_password:
             self.add_error('confirm_password', 'Passwords do not match, please type it again.')
 
-        if not self.is_superuser and validate_clear_data.get('terms') == False:
+        if not self.is_superuser and cleaned_data.get('terms') == False:
             self.add_error(
                 'terms', 'Please go through our terms and conditions first and accept it. ')
 
     def save(self, is_admin: bool = False):
-        username = self.validate_clear_data['username']
-        firstname = self.validate_clear_data['firstname']
-        lastname = self.validate_clear_data['lastname']
-        email = self.validate_clear_data['email']
+        username = self.cleaned_data['username']
+        firstname = self.cleaned_data['firstname']
+        lastname = self.cleaned_data['lastname']
+        email = self.cleaned_data['email']
         password = self.cleaned_data['confirm_password']
         superuser = User.objects.create_superuser if is_admin else User.objects.create_user
         user = superuser(username, email, password)
@@ -90,7 +89,7 @@ class LoginForm(forms.Form):
     ), required=True, validators=[password_strength])
 
     # checking enable to verify if the supplied username matches in the database or not.
-    def validate_clear(self):
-        validate_clear_data = super().clean()
-        if not username_exists(validate_clear_data['username']):
+    def clean(self):
+        cleaned_data = super().clean()
+        if not username_exists(cleaned_data['username']):
             self.add_error('username', 'The username does not match, please try again.')
