@@ -1,0 +1,137 @@
+{% extends 'payapp/base.html' %}
+{% load static %}
+{% block title %}Request Money | Payly{% endblock %}
+
+{% block content %}
+<div class="bg-primary">
+    <div class="container d-flex justify-content-center">
+        <ul class="nav nav-pills alternate nav-lg border-bottom-0">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'send_money' %}">Send</a></li>
+            <li class="nav-item"> <a class="nav-link active" href="{% url 'request_money' %}">Request</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="content" class="py-4">
+    <div class="container">
+
+        <div class="row mt-4 mb-5">
+            <div class="col-lg-11 mx-auto">
+                <div class="row widget-steps">
+                    <div class="col-4 step active">
+                        <div class="step-name">Details</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="step-dot"></a> </div>
+                    <div class="col-4 step disabled">
+                        <div class="step-name">Confirm</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="step-dot"></a> </div>
+                    <div class="col-4 step disabled">
+                        <div class="step-name">Success</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="step-dot"></a> </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="fw-400 text-center mt-3">Request Money</h2>
+        <p class="lead text-center mb-4">Request your payment on anytime, anywhere in the world.</p>
+        <div class="row">
+            <div class="col-md-9 col-lg-7 col-xl-6 mx-auto">
+                <div class="bg-white shadow-sm rounded p-3 pt-sm-4 pb-sm-5 px-sm-5 mb-4">
+                    <h3 class="text-5 fw-400 mb-3 mb-sm-4">Payer Details</h3>
+                    <hr class="mx-n3 mx-sm-n5 mb-4">
+                    <form id="form-send-money" method="post">
+                        <div class="mb-3">
+                            <label for="payerName" class="form-label">Name</label>
+                            <input type="text" value="" class="form-control" data-bv-field="payerName" id="payerName" required placeholder="Enter Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailID" class="form-label">Email</label>
+                            <input type="text" value="" class="form-control" data-bv-field="emailid" id="emailID" required placeholder="Enter Email Address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputCountry" class="form-label">Country</label>
+                            <select class="form-select" id="inputCountry" name="country_id">
+                                <option value="">Select Country</option>
+                                <option value="14">Austria</option>
+                                <option value="21">Belgium</option>
+                                <option value="33">Bulgaria</option>
+                                <option value="53">Croatia</option>
+                                <option value="55">Cyprus</option>
+                                <option value="56">Czech Republic</option>
+                                <option value="57">Denmark</option>
+                                <option value="67">Estonia</option>
+                                <option value="72">Finland</option>
+                                <option value="74">France</option>
+                                <option value="81">Germany</option>
+                                <option value="84">Greece</option>
+                                <option value="97">Hungary</option>
+                                <option value="99">India</option>
+                                <option value="103">Ireland</option>
+                                <option value="105">Italy</option>
+                                <option value="109">Kazakhstan</option>
+                                <option value="117">Latvia</option>
+                                <option value="123">Lithuania</option>
+                                <option value="124">Luxembourg</option>
+                                <option value="132">Malta</option>
+                                <option value="146">Myanmar</option>
+                                <option value="149">Nepal</option>
+                                <option value="150">Netherlands</option>
+                                <option value="162">Pakistan</option>
+                                <option value="170">Poland</option>
+                                <option value="171">Portugal</option>
+                                <option value="175">Romania</option>
+                                <option value="189">Slovakia </option>
+                                <option value="190">Slovenia</option>
+                                <option value="195">Spain</option>
+                                <option value="203">Sweden</option>
+                                <option value="222">United Kingdom</option>
+                                <option value="223">United States</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" data-bv-field="amount" id="amount" value="1,000.00" placeholder="">
+                                <span class="input-group-text p-0">
+                    <select id="recipientCurrency" data-style="form-select bg-transparent border-0" data-container="body" data-live-search="true" class="selectpicker form-control bg-transparent" required="">
+                      <optgroup label="Popular Currency">
+                      <option data-icon="currency-flag currency-flag-usd me-1" data-subtext="United States dollar" value="">USD</option>
+                      <option data-icon="currency-flag currency-flag-gbp me-1" data-subtext="British Pound" selected="selected" value="">GBP</option>
+                      <option data-icon="currency-flag currency-flag-eur me-1" data-subtext="Euro" value="">EUR</option>
+                      </optgroup>
+                      <option value="" data-divider="true">divider</option>
+                      <optgroup label="Other Currency">
+                      <option data-icon="currency-flag currency-flag-npr me-1" data-subtext="Nepalese Rupee" value="">NPR</option>
+                      <option data-icon="currency-flag currency-flag-vnd me-1" data-subtext="Vietnamese dong" value="">VND</option>
+                      <option data-icon="currency-flag currency-flag-zar me-1" data-subtext="South African rand" value="">ZAR</option>
+                      </optgroup>
+                    </select>
+                    </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" rows="4" id="description" required placeholder="Payment Description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="paymentDue" class="form-label">Payment due by</label>
+                            <div class="position-relative">
+                                <input id="paymentDue" value="" type="text" class="form-control" required placeholder="Payment Due Date">
+                                <span class="icon-inside"><i class="fas fa-calendar-alt"></i></span> </div>
+                        </div>
+                        <div class="d-grid mt-4"><button class="btn btn-primary">Continue</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

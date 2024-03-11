@@ -22,10 +22,15 @@ def transaction(request):
 
 
 @login_required(login_url='login')
-def dash_send(request):
-    return render(request, 'payapp/dash-send.html')
+def send_money(request):
+    return render(request, 'payapp/send.html')
 
 
 @login_required(login_url='login')
-def dash_request(request):
-    return render(request, 'payapp/dash-request.html')
+def request_money(request):
+    return render(request, 'payapp/request.html')
+
+
+@login_required(login_url='login')
+def help(request):
+    return render(request, 'payapp/help.html')

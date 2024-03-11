@@ -1,17 +1,27 @@
 {% load static %}
-{% block dash-navbar %}
+{% block navbar %}
 <div class="header-row">
   <div class="header-column justify-content-start">
     <div class="logo me-3"> <a class="d-flex" href="{% url 'mainpage' %}" title="Payly"><img src="{% static 'img/logo.png'%}" width="120" height="50" alt="Payly" /></a> </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav"> <span></span> <span></span> <span></span> </button>
     <nav class="primary-menu navbar navbar-expand-lg">
       <div id="header-nav" class="collapse navbar-collapse">
+        {% with request.resolver_match.view_name as current_view %}
         <ul class="navbar-nav me-auto">
-          <li class="active"><a href="{% url 'dashboard' %}">Dashboard</a></li>
-          <li><a href="{% url 'transaction' %}">Transactions</a></li>
-          <li><a href="{% url 'dash_send' %}">Send/Request</a></li>
-          <li><a href="help.html">Help</a></li>
+          <li {% if current_view == 'dashboard' %}class="active"{% endif %}>
+          <a href="{% url 'dashboard' %}">Dashboard</a>
+          </li>
+          <li {% if current_view == 'transaction' %}class="active"{% endif %}>
+          <a href="{% url 'transaction' %}">Transactions</a>
+          </li>
+          <li {% if current_view == 'send' %}class="active"{% endif %}>
+          <a href="{% url 'send_money' %}">Send/Request</a>
+          </li>
+          <li {% if current_view == 'help' %}class="active"{% endif %}>
+          <a href="{% url 'help' %}">Help</a>
+          </li>
         </ul>
+        {% endwith %}
       </div>
     </nav>
   </div>
@@ -38,7 +48,7 @@
             <li><a class="dropdown-item" href="settings-payment-methods.html"><i class="fas fa-credit-card"></i>Payment Methods</a></li>
             <li><a class="dropdown-item" href="settings-notifications.html"><i class="fas fa-bell"></i>Notifications</a></li>
             <li class="dropdown-divider mx-n3"></li>
-            <li><a class="dropdown-item" href="help.html"><i class="fas fa-life-ring"></i>Need Help?</a></li>
+            <li><a class="dropdown-item" href="{% url 'help' %}"><i class="fas fa-life-ring"></i>Need Help?</a></li>
             <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
           </ul>
         </li>

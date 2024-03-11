@@ -4,8 +4,9 @@ from . import views
 urlpatterns = [
     path('payapp/', views.dashboard, name='dashboard'),
     path('payapp/transaction/', views.transaction, name='transaction'),
-    path('payapp/dash-send/', views.dash_send, name='dash_send'),
-    path('payapp/dash-request/', views.dash_request, name='dash_request'),
+    path('payapp/send/', views.send_money, name='send_money'),
+    path('payapp/request/', views.request_money, name='request_money'),
+    path('payapp/help/', views.help, name='help'),
     path('logout/',views.logout,name='logout')
 
 ]
