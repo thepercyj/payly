@@ -7,6 +7,9 @@ urlpatterns = [
     path('payapp/send/', views.send_money, name='send_money'),
     path('payapp/request/', views.request_money, name='request_money'),
     path('payapp/help/', views.help, name='help'),
-    path('logout/',views.logout,name='logout')
+    path('payapp/notifications/', views.notifications, name='notifications'),
+    path('payapp/profile/', views.profile, name='profile'),
+    path('payapp/edit-profile/', views.edit_profile, name='edit_profile'),
+    path('logout/', views.logout, name='logout')
 
 ]
