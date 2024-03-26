@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/payapp/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payapp/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popup/nothing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popup/toast.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popup/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/elements.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/payapp/modal/edit-profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/payapp/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/deposit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/deposit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/notifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/notifications.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapps.db" beforeDir="false" afterPath="$PROJECT_DIR$/webapps.db" afterDir="false" />
-    </list>
+    <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +104,7 @@
       <workItem from="1710462502371" duration="150000" />
       <workItem from="1710764504052" duration="192000" />
       <workItem from="1711217840392" duration="2847000" />
-      <workItem from="1711277794822" duration="23620000" />
+      <workItem from="1711277794822" duration="23742000" />
     </task>
     <servers />
   </component>
