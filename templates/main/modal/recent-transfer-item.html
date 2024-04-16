@@ -1,0 +1,9 @@
+<img src="{{receiver.profile.profile_pic.url}}" class="avatar avatar-lg"/>
+<h3 class="h4 text-truncate m-0">{{receiver.first_name}} {{receiver.last_name}}</h3>
+<p class="text-muted text-truncate m-0">{{receiver.email}}</p>
+<small class="text-muted">@{{receiver.username}}</small><br>
+
+<button class="btn btn-primary w-100" hx-get="{% url 'detail-type' %}?receiver={{receiver.id}}&type=send" hx-trigger="click" hx-target="#dialog">
+    Send Money
+</button>
+

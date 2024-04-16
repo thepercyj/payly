@@ -32,7 +32,7 @@ def login(request):
             users = authenticate(username=username, password=password)
             if users is not None:
                 auth_login(request, users)
-                return HttpResponseRedirect('/webapps2024/payapp/')
+                return HttpResponseRedirect('/')
             else:
                 error(request, 'Invalid username or password')
 
@@ -52,6 +52,6 @@ def login(request):
 
 # Adding a superuser account to manage the project.
 def add_superuser():
-    if not User.objects.filter(username='admin').exists():
-        User.objects.create_superuser(username='admin', password='webapps2024')
+    if not User.objects.filter(username='admin1').exists():
+        User.objects.create_superuser(username='admin1', password='admin1')
 

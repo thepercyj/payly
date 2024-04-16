@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'register',
     'payapp',
     'main',
+    'walletapp',
+    'notificationapp',
+    'conversionapp',
+    'adminapp',
 ]
 
 MIDDLEWARE = [

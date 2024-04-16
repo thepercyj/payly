@@ -1,0 +1,59 @@
+{% extends 'main/layout/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Send Money - Payly{% endblock %}
+{% block content %}
+<div class="bg-primary">
+    <div class="container d-flex justify-content-center">
+        <ul class="nav nav-pills alternate nav-lg border-bottom-0">
+            <li class="nav-item"> <a class="nav-link active" href="{% url 'send-money'%}">Send</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'request-money'%}">Request</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="content" class="py-4">
+    <div class="container">
+        <h2 class="fw-400 text-center mt-3">Send Money</h2>
+        <p class="lead text-center mb-4">Send your money on anytime, anywhere in the world.</p>
+        <div class="row">
+            <div class="col-md-9 col-lg-7 col-xl-6 mx-auto">
+                <div class="bg-white shadow-sm rounded p-3 pt-sm-4 pb-sm-5 px-sm-5 mb-4">
+                    <form method="get">
+                        {% csrf_token %}
+                        <div>
+                            {{ form.tag|as_crispy_field }}
+                        </div>
+                        <div>
+                            {{ form.identifier|as_crispy_field }}
+                        </div>
+                        <br>
+                        <div class="d-grid"><button class="btn btn-primary" type="submit"><i
+                                class="fa-solid fa-magnifying-glass text-light mr-2"></i>Find People</button></div>
+                    </form>
+                    <div class="col-lg-12 m-0 mt-4 p-0">
+
+                        {% if search_results %}
+                        <h2 class="h4 m-0">Search Results ({{search_results|length}})</h2>
+                        <small class="text-muted">We've found {{search_results|length}} result similar to your search</small>
+
+                        <div class="row m-0 mt-4  w-100">
+                            {% for rec in search_results %}
+                            {% if rec.id == request.user.id %}
+                            {% else %}
+                            <div>
+                                {% include 'banking/partials/search_result_card.html' with receiver=rec type='send' %}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

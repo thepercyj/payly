@@ -1,0 +1,34 @@
+{% extends 'main/layout/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}All Users - Payly{% endblock %}
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+            {% include 'main/layout/sidebar.html' %}
+            <div class="col-lg-9">
+                <h2 class="fw-400 mb-3">All Users</h2>
+                <h6 class="text-muted">A complete list of all users inside the payment app.</h6>
+                <div class="row">
+                    <div class="col mb-2">
+                        <div class="row g-3 mb-3">
+                            <div class="col-auto d-flex align-items-center ms-auto">
+                                <div class="dropdown"> <a class="text-muted btn-link" href="#" role="button" hx-get="{% url 'add-admin' %}" hx-target="#dialog" hx-trigger="click"><i class="fas fa-plus text-3 me-1"></i>Add New Admin</a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="statements"> <a class="dropdown-item" href="#">CSV</a> <a class="dropdown-item" href="#">PDF</a> </div>
+                                </div>
+                            </div>
+                            <div class="bg-white shadow-sm rounded py-4 mb-4">
+                                <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">All Users</h3>
+                                <hr class="mb-2 mx-n2">
+                                <div class="m-0" hx-get="{% url 'get-all-users'%}?limit=10&type=all" hx-trigger="load">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

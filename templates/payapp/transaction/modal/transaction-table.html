@@ -1,0 +1,32 @@
+<div class="transaction-title py-2 px-4" id="transaction-table">
+    <div class="row fw-00">
+        <div class="col-auto col-sm-1 text-center"><span class="">Date</span></div>
+        <div class="col col-sm-5">Description</div>
+        {% if type == 'user' %}
+        <div class="col-auto col-sm-2 d-none d-sm-block text-center">Status</div>
+        {% endif %}
+        <div class="col text-center">Amount</div>
+        <div class="col text-center">Balance</div>
+    </div>
+</div>
+<div id="transaction-list">
+    {% for t in transactions %}
+    <div class="transaction-list {% if t.type == 'DEBIT' %}table-warning{% endif %}">
+        <div class="transaction-item px-4 py-3">
+            <div class="row align-items-center flex-row" hx-get="{% url 'transaction-detail' %}?tid={{t.id}}" hx-trigger="click" hx-target="#dialog">
+                <div class="col-2 col-sm-1 text-center"> <span class="d-block text-4 fw-300">{{t.datetime|date:"d"}}</span> <span class="d-block text-1 fw-300 text-uppercase">{{t.datetime|date:"M"}}</span> </div>
+                <div class="col col-sm-5"> <span class="d-block text-4">{{t.sender.first_name}}</span> <span class="text-muted">send to {{t.receiver.first_name}}</span> </div>
+                {% if type == 'user' %}
+                {% if t.type == 'DEBIT' %}
+                <div class="col-auto col-sm-2 d-none d-sm-block text-center"> <span class="text-warning"><i class="fas fa-caret-down text-danger">{{t.type}}</i></span> </div>
+                {% else %}
+                <div class="col-auto col-sm-2 d-none d-sm-block text-center"> <span class="text-warning"><i class="fas fa-caret-up text-success">{{t.type}}</i></span> </div>
+                {% endif %}
+                {% endif %}
+                <div class="col text-center"> <span class="d-sm-block text-3">{{t.amount}}</span> <span class="text-2 text-uppercase">{{t.currency}}</span> </div>
+                <div class="col text-center"> <span class="d-sm-block text-3">{{t.balance}} {{request.user.wallet.currency}} </span> <span class="text-muted"></span> </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,28 @@
+{% extends 'main/layout/base.html' %}
+{% load static %}
+{% block title %}Bank Accounts - Payly{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+            {% include 'main/layout/sidebar.html' %}
+            <div class="col-lg-9" >
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 mb-4 d-flex justify-content-between">Bank Accounts<a href="#" hx-get="{% url 'add-bank-account'%}" hx-target="#dialog"
+                             hx-trigger="click">
+                            <span class="text-3"><i class="fas fa-plus-circle"></i></span> <span class=" text-body text-3">Add New Bank Account</span>
+                        </a></h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row g-3">
+                        <div hx-get="{% url 'get-bank-account-list'%}?user_id={{request.user.id}}" hx-trigger="load, popup from:body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

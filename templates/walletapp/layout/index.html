@@ -1,0 +1,52 @@
+{% extends 'main/layout/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}My Wallet - Payly{% endblock %}
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+            {% include 'main/layout/sidebar.html' %}
+            <div class="col-lg-9">
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center mb-4">My Wallet</h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <a href="#" hx-get="{% url 'balance' %}" hx-trigger="load, popup from:body">
+
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="account-card account-card-primary text-white rounded ">
+                                <div class="row g-0">
+                                    <div class="col-3 d-flex justify-content-center p-3">
+                                        <div class="my-auto text-center"> <span class="text-13"><i class="fas fa-university"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-9 border-start">
+                                        <div class="py-4 my-2 ps-4">
+                                            <p class="text-4 fw-500 mb-1">{{accounts|length}}</p>
+                                            <p class="text-4 opacity-9 mb-1">Bank Accounts</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="account-card-overlay rounded">
+                                    <a href="#" hx-get="{% url 'create-bank-account' %}" hx-target="#dialog" hx-trigger="click" class="text-light btn-link mx-2"><span class="me-1"><i class="fas fa-plus-circle"></i></span>Add new Bank account</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bg-white shadow-sm rounded py-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">Last 10 Transactions</h3>
+                    <div hx-get="{% url 'transaction-list' %}?limit=10" hx-trigger="load">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

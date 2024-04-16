@@ -1,0 +1,25 @@
+{% load static %}
+<div class="transaction-list">
+    <div class="transaction-item px-4 py-3">
+        <div class="row align-items-center flex-row">
+            <div class="col col-sm-2 text-center"><span class="d-block text-4 "><img src="{{receiver.profile.profile_pic.url}}" class=" avatar avatar-lg"></span><span class="text-muted ">@{{receiver.username}}</span></div>
+            <div class="col col-sm-5 text-center"> <span class="d-block text-4">{{receiver.first_name}} {{receiver.last_name}}</span> <span class="text-muted">{{receiver.email}}</span> </div>
+            {% if type == 'send' %}
+            <div class="col text-center" hx-get="{% url 'send-money-details' %}?receiver={{receiver.id}}&type={{type}}" hx-trigger="click" hx-target="#dialog"><button class="btn btn-primary btn-sm" ><i class="fa-solid fas fa-paper-plane mr-2 fa-sm"></i>
+                Send</button>
+            </div>
+            {% elif type == 'request' %}
+            <div class="col text-center" hx-get="{% url 'request-money-details' %}?receiver={{receiver.id}}&type={{type}}" hx-trigger="click" hx-target="#dialog"><button class="btn btn-primary btn-sm" ><i class="fa-solid fas fa-paper-plane mr-2 fa-sm"></i>
+                Request</button>
+            </div>
+            {% elif type == 'edit' %}
+            <div class="col text-center" hx-get="{% url 'detail-type' %}?receiver={{receiver.id}}&type={{type}}" hx-trigger="click" hx-target="#dialog"><button class="btn btn-primary btn-sm" ><i class="fa-solid fas fa-paper-plane mr-2 fa-sm"></i>
+                Edit</button>
+            </div>
+            <div class="col text-center" hx-get="{% url 'detail-type' %}?receiver={{receiver.id}}&type={{type}}" hx-trigger="click" hx-target="#dialog"><button class="btn btn-primary btn-sm" ><i class="fa-solid fas fa-pencil mr-2 fa-sm"></i>
+                Edit</button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

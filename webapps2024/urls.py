@@ -23,9 +23,13 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('', RedirectView.as_view(url='/webapps2024/', permanent=True)),
     path('webapps2024/', include('main.urls')),
-    path('webapps2024/', include('register.urls')),
-    path('webapps2024/', include('payapp.urls')),
-    path('admin/', admin.site.urls),
+    path('webapps2024/register/', include('register.urls')),
+    path('webapps2024/payapp/', include('payapp.urls')),
+    path('webapps2024/wallet/', include('walletapp.urls')),
+    path('webapps2024/notification/', include('notificationapp.urls')),
+    path('webapps2024/conversion/', include('conversionapp.urls')),
+    path('webapps2024/admin/', include('adminapp.urls')),
+    path('django-admin/', admin.site.urls),
 
 ]
 

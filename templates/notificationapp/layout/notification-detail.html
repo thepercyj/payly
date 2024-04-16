@@ -1,0 +1,35 @@
+{% extends 'main/layout/base.html' %}
+{% load static %}
+{% block title %}Notifications - Payly{% endblock %}
+
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+            {% include 'main/layout/sidebar.html' %}
+            <div class="col-lg-9" >
+                <div class="bg-white shadow-sm rounded py-4 mb-4">
+                    <h3 class="text-5 fw-400 px-4 mb-4">Notifications</h3>
+                    <hr class="mb-0">
+
+                    <div class="notifications-list">
+                        {% for notif in notifications %}
+                        <div class="notifications-item px-4 py-3">
+                            <div class="row align-items-center flex-row">
+                                <div class="col-2 col-sm-1 text-center text-8 icon-bell"><i class="far fa-bell"></i></div>
+                                <div class="col col-sm-10">
+                                    <h4 class="text-3 mb-1">{{notif.title}}</h4>
+                                    <h5 class="text-2 mb-1">{{notif.message}}</h5>
+                                    <span class="text-muted">{{notif.datetime|date:"d, M Y"}}</span> </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="text-center mt-4"> <a class="btn btn-sm btn-outline-secondary shadow-none" href="#">Load More</a> </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

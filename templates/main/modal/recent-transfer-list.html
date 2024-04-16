@@ -1,0 +1,20 @@
+<ol class="carousel-indicators">
+    {% for trans in r_transfers %}
+    <li data-target="#slider" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %} class="active" {% endif %}></li>
+    {% endfor %}
+</ol>
+<div class="carousel-inner">
+    {% for trans in r_transfers %}
+    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+        {% include './recent-transfer-item.html' with receiver=trans %}
+    </div>
+    {% endfor %}
+</div>
+<a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+    <span aria-hidden="true"><i class="fas fa-chevron-left text-black"></i></span>
+    <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+    <span aria-hidden="true"><i class="fas fa-chevron-right text-black"></i></span>
+    <span class="sr-only">Next</span>
+</a>

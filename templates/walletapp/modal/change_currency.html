@@ -1,0 +1,16 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<form hx-post="{% url 'change-currency' %}" >
+    <h5 class="m-0 p-0">Change default currency</h5>
+    {% csrf_token %}
+    <div class="">
+        {{ form.currency|as_crispy_field}}
+    </div>
+   
+    <button class="btn btn-outline-success w-100" type="submit"><i class="fa fa-wallet mr-2"></i>Add to wallet</button>
+    <button class="btn btn-outline-warning w-100 mt-2" data-dismiss="modal"><i class="fa fa-close mr-2"></i>Cancel </button>
+</form>
+
+
+

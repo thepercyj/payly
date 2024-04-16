@@ -1,0 +1,47 @@
+{% load static %}
+{% block navbar %}
+<div class="header-row">
+  <div class="header-column justify-content-start">
+    <div class="logo me-3"> <a class="d-flex" href="#" title="Payly"><img src="{% static 'img/logo.png'%}" width="120" height="50" alt="Payly" /></a> </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav"> <span></span> <span></span> <span></span> </button>
+    <nav class="primary-menu navbar navbar-expand-lg">
+      <div id="header-nav" class="collapse navbar-collapse">
+        {% with request.resolver_match.view_name as current_view %}
+        <ul class="navbar-nav me-auto">
+          <li {% if current_view == 'dashboard' %}class="active"{% endif %}>
+          <a href="{% url 'dashboard' %}">Dashboard</a>
+          </li>
+          <li {% if current_view == 'transaction' %}class="active"{% endif %}>
+          <a href="{% url 'transaction' %}">Transactions</a>
+          </li>
+          <li {% if current_view == 'send-money' %}class="active"{% endif %}>
+          <a href="{% url 'send-money'%}">Send/Request</a>
+          </li>
+        </ul>
+        {% endwith %}
+      </div>
+    </nav>
+  </div>
+  <div class="header-column justify-content-end">
+    <nav class="login-signup navbar navbar-expand">
+      <ul class="navbar-nav">
+        <li class="dropdown notifications"> <a class="dropdown-toggle" href="#"><span class="text-5"><i class="far fa-bell"></i></span><span class="count">{{ count }}</span></a>
+          <ul class="dropdown-menu " hx-get="{% url 'get-notifications' %}" hx-trigger="load, popup from:body"
+              hx-swap="outerHtml">
+
+          </ul>
+        </li>
+        <li class="dropdown profile ms-2"> <a class="px-0 dropdown-toggle" href="#"><img class="rounded-circle" src="{% static 'img/profile.jpg'%}" alt=""></a>
+          <ul class="dropdown-menu">
+            <li class="text-center text-3 py-2">Hi, {{ user.first_name }} {{ user.last_name }}</li>
+            <li class="dropdown-divider mx-n3"></li>
+            <li><a class="dropdown-item" href="{% url 'account' %}"><i class="fas fa-user"></i>My Profile</a></li>
+            <li class="dropdown-divider mx-n3"></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Sign Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+.body-bg {
+  
+}
+
+.display-card {
+    height: 150px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.display-card-img {
+    max-width: 74px;
+    max-height: 74px;
+}
+
+.display-card a {
+    text-decoration: none;
+}
+
+.display-card a:hover {
+    transform: scale(1.05);
+}
+
+.display-card:hover {
+    background-color: var(--bg-hover);
+}
+
+.notification-btn {
+    cursor: pointer;
+}

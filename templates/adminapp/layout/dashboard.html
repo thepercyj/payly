@@ -1,0 +1,121 @@
+{% extends 'main/layout/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Admin - Payly{% endblock %}
+{% block content %}
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+            {% include 'main/layout/sidebar.html' %}
+            <div class="col-lg-9">
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center mb-4">App Statistics</h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row gy-4 profile-completeness">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-exchange-alt"></i></span> <span class="text-5 d-block text-primary mt-4 mb-3">{{success_transactions | length}}</span>
+                                <p class="mb-0 text-primary">Successful Transactions</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-hourglass-half"></i></span> <span class="text-5 d-block text-primary mt-4 mb-3">{{pending_transactions| length}}</span>
+                                <p class="mb-0 text-primary">Pending Transactions</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-users"></i></span> <span class="text-5 d-block text-primary mt-4 mb-3">{{users}}</span>
+                                <p class="mb-0 text-primary">Total Users</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center mb-4">Admin Menu</h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row gy-4 profile-completeness">
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'all-users' %}">
+                                <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-users"></i></span> <span class="text-5 d-block text-primary mt-4 mb-3"></span>
+                                    <p class="mb-0">All Users</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'all-transactions' %}">
+                                <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-file-contract"></i></span> <span class="text-5 d-block text-primary mt-4 mb-3"></span>
+                                    <p class="mb-0">All Transactions</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center mb-4">Quick Menu</h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row gy-4 profile-completeness">
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" hx-get="{% url 'add-money' %}" hx-trigger="click" hx-target="#dialog">
+                                <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-money-bill-wave"></i></span> <span class="text-5 d-block text-success mt-4 mb-3"></span>
+                                    <p class="mb-0">Add<br>Money</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'send-money' %}">
+                                <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-paper-plane"></i></span> <span class="text-5 d-block text-success mt-4 mb-3"></span>
+                                    <p class="mb-0">Send/Request<br>Money</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'transaction' %}">
+                                <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-newspaper"></i></span> <span class="text-5 d-block text-success mt-4 mb-3"></span>
+                                    <p class="mb-0">My<br>Transactions</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'transfer-requests' %}">
+                                <div class="border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-directions"></i></span> <span class="text-5 d-block text-success mt-4 mb-3"></span>
+                                    <p class="mb-0">Transfer<br>Requests</p>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center mb-4">Banking</h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row gy-4 profile-completeness">
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'wallet' %}">
+                                <div class="position-relative border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-credit-card"></i></span> <span class="text-5 d-block text-light mt-4 mb-3"></span>
+                                    <p class="mb-0">My<br>Wallet</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="{% url 'banking' %}">
+                                <div class="position-relative border rounded text-center px-3 py-4"> <span class="d-block text-10 text-light mt-2 mb-3"><i class="fas fa-university"></i></span> <span class="text-5 d-block text-light mt-4 mb-3"></span>
+                                    <p class="mb-0">My<br>Bank Account</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white shadow-sm rounded py-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">Recent Activity</h3>
+                    <div hx-get="{% url 'transaction-list' %}?limit=3" hx-trigger="load">
+                    </div>
+
+
+                    <div class="text-center mt-4"><a href="{% url 'transaction' %}" class="btn-link text-3">View all<i class="fas fa-chevron-right text-2 ms-2"></i></a></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

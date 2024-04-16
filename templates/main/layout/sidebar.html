@@ -1,0 +1,27 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<aside class="col-lg-3">
+
+    <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+        <div class="profile-thumb mt-3 mb-4"> <img class="rounded-circle" src="{% static 'img/profile-pic.jpg'%}" alt="">
+            <div class="profile-thumb-edit bg-primary text-white" data-bs-toggle="tooltip" title="Change Profile Picture"> <i class="fas fa-camera position-absolute"></i>
+                <input type="file" class="custom-file-input" id="customFile">
+            </div>
+        </div>
+        <p class="text-3 fw-500 mb-2">Hello, {{ user.username }}</p>
+        <p class="mb-2"><a href="{% url 'account' %}" class="text-5 text-light" data-bs-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></a></p>
+    </div>
+
+    <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+        <div hx-get="{% url 'currency' %}" hx-trigger="load, popup from:body">
+
+        </div>
+    </div>
+    <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+        <h3 class="text-5 fw-400 align-items-center mb-4">Recent Transfers</h3>
+        <hr class="mx-n3">
+        <div id="slider" class="carousel slide" data-ride="carousel" hx-get="{% url 'recent-transfers' %}?user_id={{request.user.id}}" hx-trigger="load, popup from:body">
+        </div>
+
+    </div>
+</aside>

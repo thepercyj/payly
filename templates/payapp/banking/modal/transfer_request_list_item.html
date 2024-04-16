@@ -1,0 +1,41 @@
+{% if request.user.id == transfer_request.sender.id %}
+<div class="transaction-title py-2 px-4">
+    <div class="row fw-00">
+        <div class="col col-sm-2 text-center">Requested To</div>
+        <div class="col col-sm-5">Description</div>
+        <div class="col-auto col-sm-2 d-none d-sm-block text-center">Amount</div>
+        <div class="col text-center">Actions</div>
+    </div>
+</div>
+<div class="transaction-list">
+    <div class="transaction-item px-4 py-3">
+        <div class="row align-items-center flex-row">
+            <div class="col col-sm-2 text-center"><span class="d-block text-4"><img src="{{transfer_request.receiver.profile.profile_pic.url}}" class="avatar avatar-lg" /></span> </div>
+            <div class="col col-sm-5"> <span class="d-block text-4">You have requested money from {{transfer_request.receiver.first_name}} {{transfer_request.receiver.last_name}}</span> <span class="text-muted">on {{transfer_request.datetime}}</span> </div>
+            <div class="col-auto col-sm-2 d-none d-sm-block text-center"> <span class="d-sm-block text-3">{{transfer_request.amount}} </span> <span class="text-2 text-uppercase">{{transfer_request.currency}}</span> </div>
+            <div class="col text-center" hx-get="{% url 'request-withdrawal' %}?rid={{transfer_request.id}}" hx-trigger="click" hx-target="#dialog"><button class="btn btn-outline-danger btn-sm" ><i class="fa-solid fas fa-trash mr-2 fa-sm"></i></button></div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="transaction-title py-2 px-4">
+    <div class="row fw-00">
+        <div class="col col-sm-2 text-center">Requested From</div>
+        <div class="col col-sm-5">Description</div>
+        <div class="col-auto col-sm-2 d-none d-sm-block text-center">Actions</div>
+        <div class="col text-center">Actions</div>
+    </div>
+</div>
+<div class="transaction-list">
+    <div class="transaction-item px-4 py-3">
+        <div class="row align-items-center flex-row">
+            <div class="col col-sm-2 text-center"><span class="d-block text-4"><img src="{{transfer_request.sender.profile.profile_pic.url}}" class="avatar avatar-lg" /></span> </div>
+            <div class="col col-sm-5"> <span class="d-block text-4">{{transfer_request.sender.first_name}} {{transfer_request.sender.last_name}} has requested money from you </span> <span class="text-muted">on {{transfer_request.datetime}}</span> </div>
+            <div class="col-auto col-sm-2 d-none d-sm-block text-center"> <span class="d-sm-block text-3">{{transfer_request.amount}} </span> <span class="text-2 text-uppercase">{{transfer_request.currency}}</span> </div>
+            <div class="col text-center" ><button class="btn btn-outline-success btn-sm" hx-get="{% url 'confirm-transfer-approval'%}?rid={{transfer_request.id}}" hx-target="#dialog"><i class="fa-solid fas fa-check mr-2 fa-sm"></i></button>&nbsp;&nbsp;
+                <button class="btn btn-outline-danger btn-sm" hx-get="{% url 'confirm-transfer-denial'%}?rid={{transfer_request.id}}" hx-target="#dialog"><i class="fa-solid fas fa-times mr-2 fa-sm"></i></button></div>
+
+        </div>
+    </div>
+</div>
+{% endif %}

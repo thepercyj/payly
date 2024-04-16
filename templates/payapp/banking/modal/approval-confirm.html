@@ -1,0 +1,22 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<form>
+    {% csrf_token %}
+    <div class="text-center">
+        <img src="{% static 'img/withdraw.png' %}" class="avatar avatar-lg" />
+        <h3 class="h5 mt-4">Approve Transfer Confirmation</h3>
+        <p class="text-muted">Are you sure you want to transfer {{tr.currency}} {{tr.amount}} to {{tr.receiver.first_name}}?
+        </p>
+    </div>
+    <input type="hidden" name="rid" value="{{tr.id}}">
+    <button class="btn btn-outline-success w-100 mt-2" 
+    hx-get="{% url 'approve-request' %}"
+    hx-include="[name='rid']"
+    hx-trigger="click"
+    hx-target="#dialog">
+        <i class="fa-solid fa-check mr-2 fa-sm"></i>Approve now
+    </button>
+    <button class="btn btn-outline-warning w-100 mt-2" id="cancel_send_btn" data-dismiss="modal">
+        <i class="fa-solid fa-close mr-2 fa-sm"></i>Cancel
+    </button>
+</form>

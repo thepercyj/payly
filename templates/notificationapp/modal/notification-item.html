@@ -1,0 +1,5 @@
+<a href="{% if notification.type == 'MONREQ' %}{% url 'transfer-request' %}{% else %}{% url 'transaction' %}{% endif %}">
+    <i class="fas fa-bell">
+    </i>{{notification.title}}<br>
+        <small class="text-muted">{{notification.message}}</small><span class="text-1 text-muted d-block">{{notification.datetime|date:"d, M Y"}}</span>
+</a>

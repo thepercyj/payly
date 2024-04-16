@@ -24,8 +24,8 @@ def username_validator(username):
 
 # function that checks password strength, must not be less than 8 as per standards.
 def password_strength(password):
-    if len(password) < 8:
-        raise forms.ValidationError('The provided password is too short, minimum password length is 8. Try again !')
+    if len(password) < 5:
+        raise forms.ValidationError('The provided password is too short, minimum password length is 5. Try again !')
 
 
 # Registration form to register new users.

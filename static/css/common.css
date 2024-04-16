@@ -1,0 +1,120 @@
+:root{
+    --bg-hover:#f2f2f2;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+ 
+  background-color: white;
+}
+.card, .btn, .btn-default,.card-header, .card-footer, .form-control, .input-group, .form-select,.modal, .modal-content,.modal-dialog{
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-header{
+    background-color: transparent;
+}
+
+
+.center{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+ 
+}
+
+.avatar{
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--success);
+    object-fit: cover;
+}
+
+.avatar-sm{
+    width: 32px;
+    height: 32px;
+}
+
+.avatar-md{
+    width: 42px;
+    height: 42px;
+}
+
+.avatar-lg{
+    width: 64px;
+    height: 64px;
+}
+.avatar-xl{
+  width: 128px;
+  height: 128px;
+}
+.dropdown-toggle{
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+  .hero-image{
+    visibility: hidden;
+  }
+}
+
+.center{
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+.img-sm{
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.icon-button{
+    cursor: pointer;
+}
+.icon-button .fa-solid{
+    display: none;
+}
+.icon-button .fa-regular{
+    display: block;
+}
+.icon-button:hover .fa-solid{
+    display: block;
+}
+
+.icon-button:hover .fa-regular{
+    display: none;
+}
+
+.hoverable-fa{
+  cursor: pointer;
+}
+.hoverable-fa:hover{
+  transform: scale(1.1);
+}
+
+.hoverable{
+  cursor: pointer;
+}
+
+.hoverable:hover{
+  background-color: var(--bg-hover);
+}

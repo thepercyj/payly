@@ -1,0 +1,31 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<form hx-post="{% url 'send-money-details' %}" hx-target='#dialog' >
+    <div class="text-center">
+        <img src="{{receiver.profile.profile_pic.url}}" class="avatar avatar-lg" />
+        <h3 class="h5">You are sending money to {{receiver.first_name}} {{receiver.last_name}}</h3>
+        <p class="text-muted text-truncate m-0"><i class="fa-solid fa-envelope mr-2"></i>{{receiver.email}}
+        </p>
+        <p class="text-muted text-truncate m-0"><i class="fa-solid fa-at mr-1"></i>{{receiver.username}}</p>
+    </div>
+    {% csrf_token %}
+    <div class="form" >
+
+        <input type="hidden" name="receiver" required id="receiver" value="{{receiver.id}}" />
+        <input type="hidden" name="sender" required id="sender" value="{{sender.id}}" />
+        <div class="form-group">
+            {{ form.amount|as_crispy_field}}
+        </div>
+        <div class="form-group">
+            {{ form.currency|as_crispy_field }}
+        </div>
+
+
+    </div>
+    <button class="btn btn-primary w-100" type="submit">
+       Proceed to pay 
+    </button>
+    <button class="btn btn-outline-danger w-100 mt-2" id="cancel_send_btn" data-dismiss="modal">
+        <i class="fa-solid fa-close ml-2"></i> Cancel 
+    </button>
+</form>

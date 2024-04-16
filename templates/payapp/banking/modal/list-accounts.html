@@ -1,0 +1,24 @@
+<div class="col-12 col-md-6">
+    {% for account in accounts %}
+    <div class="account-card account-card-primary text-white rounded ">
+        <div class="row g-0">
+            <div class="col-3 d-flex justify-content-center p-3">
+                <div class="my-auto text-center"> <span class="text-13"><i class="fas fa-university"></i></span>
+                </div>
+            </div>
+            <div class="col-9 border-start">
+                <div class="py-4 my-2 ps-4">
+                    <p class="text-4 fw-500 mb-1">{{account.bank_name}}</p>
+                    <p class="text-4 opacity-9 mb-1">{{account.acc_no}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="account-card-overlay rounded">
+            <a href="#" hx-get="{% url 'delete-bank-account' %}?id={{account.id}}" hx-trigger="click"  hx-target="#dialog" class="text-light btn-link mx-2"><span class="me-1"><i class="fas fa-minus-circle"></i></span>Delete</a>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+
+</div>
