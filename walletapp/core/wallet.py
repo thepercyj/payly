@@ -54,12 +54,12 @@ def check_balance(sender_id, amount: decimal.Decimal, currency):
     }
 
 
-def convert(amount: decimal.Decimal, source: Currency, to: Currency):
-    return amount * decimal.Decimal(conversion[source][to])
+def convert(amount: decimal.Decimal, from_currency: Currency, to_currency: Currency):
+    return amount * decimal.Decimal(conversion[from_currency][to_currency])
 
 
-def change_currency(user_w: Wallet, currency: Currency):
-    user_w.balance = convert(user_w.balance, user_w.currency, currency)
-    user_w.currency = currency
-    user_w.save()
+def change_currency(user_wallet: Wallet, currency: Currency):
+    user_wallet.balance = convert(user_wallet.balance, user_wallet.currency, currency)
+    user_wallet.currency = currency
+    user_wallet.save()
     return True

@@ -173,16 +173,16 @@ class RequestForm(forms.Form):
 
 
 class BankAccForm(forms.Form):
-    bank_name = forms.CharField(widget=forms.TextInput(
+    bank = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Name of your Bank'}), required=True, validators=[])
-    acc_no = forms.CharField(widget=forms.TextInput(
+    account_no = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Account Number'}), required=True, validators=[])
 
     def save(self, user):
         data = super().clean()
-        name = data['bank_name']
-        no = data['acc_no']
+        name = data['bank']
+        no = data['account_no']
         try:
             return add_bank_acc(name, no, user)
         except Exception as e:
-            self.add_error('acc_no', ValidationError(str(e)))
+            self.add_error('account_no', ValidationError(str(e)))

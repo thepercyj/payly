@@ -13,7 +13,7 @@ from payapp.core.banking.bank import get_user_bank_acc, delete_bank_acc, get_acc
 from popup.views import no_view
 from payapp.core.banking.search import search_by_id
 from payapp.core.banking.transfers import add_transfer_req, withdraw_trans_req, approve_trans_req, deny_trans_req, \
-    transfer_money
+    transfer_money, get_transfer_req_id
 from payapp.core.transactions.transactions import get_all_trans, get_trans_id, get_transaction_id
 
 
@@ -22,7 +22,7 @@ from payapp.core.transactions.transactions import get_all_trans, get_trans_id, g
 @login_required(login_url='login')
 def account(request):
     notifications = get_user_notifications(request.user.id)
-    return render(request, 'account/index.html', {'count': len(notifications)})
+    return render(request, 'payapp/account/layout/index.html', {'count': len(notifications)})
 
 
 @login_required(login_url='login')
@@ -76,7 +76,7 @@ def create_bank_acc(request):
         if form.is_valid():
             account = form.save(request.user)
             return PopupHttpResponse(success=True, title='New Bank Account Added',
-                                     message=f'{account.bank_name} has been added to your account.')
+                                     message=f'{account.bank} has been added to your account.')
     return render(request, 'payapp/banking/modal/create-account.html', {'form': form})
 
 
@@ -108,7 +108,7 @@ def remove_bank_acc(request):
                                  message='Bank account has been successfully removed from your account')
 
     context = {
-        'account': get_acc_id(account_id=request.GET.get('id'))
+        'account': get_acc_id(id=request.GET.get('id'))
     }
     return render(request, 'payapp/banking/modal/confirm-remove.html', context)
 
@@ -126,7 +126,7 @@ def list_transfer_requests(request):
     if request.method == 'GET':
         group = request.GET.get('group') if request.GET.get(
             'group') is not None else 'all'
-        results = add_transfer_req(request.user.id, group)
+        results = get_transfer_req_id(request.user.id, group)
         context = {
             'transfer_requests': results,
             'group': group,

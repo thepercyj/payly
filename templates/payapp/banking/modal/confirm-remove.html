@@ -1,6 +1,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
-<form hx-post="{% url 'delete-bank-account'%}">
+<form hx-post="{% url 'remove-bank-account'%}">
     {% csrf_token %}
     <button type="button" class="btn-close text-2 float-end" data-bs-dismiss="modal" aria-label="Close"></button>
 

@@ -1,9 +1,9 @@
 ;(function(){
     const dialogModal=new bootstrap.Modal(document.getElementById('modal'))
-    const toast=new bootstrap.Toast(document.getElementById('toast'))
-    const toastTitle=document.getElementById('toast-title')
-    const toastMessage=document.getElementById('toast-message')
-    const toastIcon=document.getElementById('toast-icon')
+    const popup=new bootstrap.Toast(document.getElementById('popup'))
+    const popupTitle=document.getElementById('popup-title')
+    const popupMessage=document.getElementById('popup-message')
+    const popupIcon=document.getElementById('popup-icon')
 
     document.body.addEventListener('htmx:afterSwap',function(e){
         
@@ -12,15 +12,15 @@
         }
     })
 
-    document.body.addEventListener('toast',function(e){
+    document.body.addEventListener('popup',function(e){
         if(e.detail.success){
-            toastIcon.className='fas fa-solid fas fa-check text-success mr-2'
+            popupIcon.className='fas fa-solid fas fa-check text-success mr-2'
         }else{
-            toastIcon.className='fas fa-solid fas fa-close text-danger mr-2'
+            popupIcon.className='fas fa-solid fas fa-close text-danger mr-2'
         }
-        toastTitle.innerText=e.detail.title
-        toastMessage.innerText=e.detail.message
-        toast.show()
+        popupTitle.innerText=e.detail.title
+        popupMessage.innerText=e.detail.message
+        popup.show()
         dialogModal.hide()
     })
 })()

@@ -29,17 +29,17 @@
                     </div>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active border rounded-bottom p-4" id="home" role="tabpanel"
-                             aria-labelledby="home-tab" hx-get="{% url 'transfer-request-list' %}?group=all" hx-swap="innerHtml"
+                             aria-labelledby="home-tab" hx-get="{% url 'list-transfer-requests' %}?group=all" hx-swap="innerHtml"
                              hx-trigger="load, popup from:body">
 
 
                         </div>
                         <div class="tab-pane fade border rounded-bottom p-4" id="profile" role="tabpanel" aria-labelledby="profile-tab"
-                             hx-get="{% url 'transfer-request-list' %}?group=sent" hx-swap="innerHtml" hx-trigger="load, popup from:body">
+                             hx-get="{% url 'list-transfer-requests' %}?group=sent" hx-swap="innerHtml" hx-trigger="load, popup from:body">
 
                         </div>
                         <div class="tab-pane fade border rounded-bottom p-4" id="contact" role="tabpanel" aria-labelledby="contact-tab"
-                             hx-get="{% url 'transfer-request-list' %}?group=recieved" hx-swap="innerHtml" hx-trigger="load, popup from:body">
+                             hx-get="{% url 'list-transfer-requests' %}?group=recieved" hx-swap="innerHtml" hx-trigger="load, popup from:body">
 
                         </div>
                     </div>
