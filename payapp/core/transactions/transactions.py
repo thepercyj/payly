@@ -1,7 +1,19 @@
 import uuid
+from datetime import datetime
+
+from django.http import HttpResponse
+
 from payapp.models import Transaction, TransactionStatus
 from django.db.models import Q
 from django.contrib.auth.models import User
+import thriftpy
+from thriftpy.rpc import make_client
+from thriftpy.thrift import TException
+
+
+timestamp_thrift = thriftpy.load(
+    'timestamp.thrift', module_name='timestamp_thrift')
+Timestamp = timestamp_thrift.TimestampService
 
 
 def get_trans_qs(user_id: int):
@@ -37,16 +49,23 @@ def unique_trans_id(user_id: int):
 
 def create_transaction(transaction_id: str, sender: User, receiver: User, status: TransactionStatus, amount, currency,
                        balance):
-    transaction = Transaction(
-        tid=transaction_id,
-        sender=sender,
-        receiver=receiver,
-        amount=amount,
-        currency=currency,
-        status=status,
-        balance=balance
-    )
-    transaction.save()
+    try:
+        client = make_client(Timestamp, '127.0.0.1', 9090)
+        timestamp = datetime.fromtimestamp(int(str(client.getCurrentTimestamp())))
+        transaction = Transaction(
+            tid=transaction_id,
+            sender=sender,
+            receiver=receiver,
+            amount=amount,
+            currency=currency,
+            status=status,
+            balance=balance,
+            datetime=timestamp,
+        )
+        transaction.save()
+
+    except TException as e:
+        return HttpResponse("An error occurred: {}".format(str(e)))
 
 
 def get_transaction_id(id: int):

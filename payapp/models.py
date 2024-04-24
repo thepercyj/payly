@@ -38,7 +38,7 @@ class Transaction(models.Model):
     balance = models.DecimalField(decimal_places=2, max_digits=12)
     currency = models.CharField(max_length=5, choices=Currency.choices, default=Currency.GBP)
     status = models.CharField(max_length=10, choices=TransactionStatus.choices, default=TransactionStatus.PENDING)
-    datetime = models.DateTimeField(auto_now_add=True)
+    datetime = models.DateTimeField(auto_now_add=False)
 
     def type(self, source_user: User):
         if source_user.id == self.id:
@@ -61,7 +61,7 @@ class TransferRequest(models.Model):
     amount = models.DecimalField(decimal_places=2, max_digits=12)
     currency = models.CharField(max_length=5, choices=Currency.choices, default=Currency.GBP)
     status = models.CharField(max_length=10, choices=TransferStatus.choices, default=TransferStatus.PENDING)
-    datetime = models.DateTimeField(auto_now_add=True)
+    datetime = models.DateTimeField(auto_now_add=False)
 
 
 class BankAccount(models.Model):

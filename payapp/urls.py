@@ -17,7 +17,6 @@ htmxpatterns = [
     path('htmx/edit-profile/', views.edit_profile, name='edit-profile'),
     path('htmx/change-password/', views.change_password, name='change-password'),
 
-
     # Banking
     path('htmx/create-bank-account', views.create_bank_acc, name='create-bank-account'),
     path('htmx/list-bank-account', views.list_bank_acc, name='list-bank-account'),
@@ -36,7 +35,6 @@ htmxpatterns = [
     path('htmx/transaction-list', views.transaction_list, name='transaction-list'),
     path('htmx/transaction-detail', views.transaction_detail, name='transaction-detail'),
     path('htmx/detail-type', views.detail_type, name='detail-type'),
-
 
 ]
 

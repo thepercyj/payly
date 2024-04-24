@@ -499,7 +499,7 @@
     <routine id="190" parent="1" name="fts5"/>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-04-19.00:05:40</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-04-22.15:57:44</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -2029,13 +2029,13 @@ model</ColNames>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="658" parent="565" name="type">
-      <DasType>varchar(10)|0s</DasType>
+    <column id="658" parent="565" name="nid">
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="659" parent="565" name="datetime">
-      <DasType>datetime|0s</DasType>
+    <column id="659" parent="565" name="type">
+      <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
@@ -2059,8 +2059,8 @@ model</ColNames>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="664" parent="565" name="nid">
-      <DasType>varchar(255)|0s</DasType>
+    <column id="664" parent="565" name="datetime">
+      <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
@@ -2144,18 +2144,18 @@ model</ColNames>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="681" parent="567" name="datetime">
-      <DasType>datetime|0s</DasType>
+    <column id="681" parent="567" name="receiver_id">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="682" parent="567" name="receiver_id">
+    <column id="682" parent="567" name="sender_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="683" parent="567" name="sender_id">
-      <DasType>integer|0s</DasType>
+    <column id="683" parent="567" name="datetime">
+      <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
@@ -2209,23 +2209,23 @@ model</ColNames>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="694" parent="568" name="datetime">
-      <DasType>datetime|0s</DasType>
+    <column id="694" parent="568" name="receiver_id">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="695" parent="568" name="receiver_id">
+    <column id="695" parent="568" name="sender_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="696" parent="568" name="sender_id">
+    <column id="696" parent="568" name="source_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="697" parent="568" name="source_id">
-      <DasType>integer|0s</DasType>
+    <column id="697" parent="568" name="datetime">
+      <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>

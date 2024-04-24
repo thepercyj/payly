@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 <form hx-post="{% url 'request-money-details' %}" hx-target='#dialog' >
     <div class="text-center">
-        <img src="{{recipient.profile.profile_pic.url}}" class="avatar avatar-lg" />
+        <img src="{{receiver.profile.profile_pic.url}}" class="avatar avatar-lg" />
         <h3 class="h5">You are requesting money from {{receiver.first_name}} {{receiver.last_name}}</h3>
         <p class="text-muted text-truncate m-0"><i class="fa-solid fa-envelope mr-2"></i>{{receiver.email}}
         </p>

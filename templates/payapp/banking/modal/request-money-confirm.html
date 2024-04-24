@@ -14,7 +14,7 @@
     </div>
     {% csrf_token %}
     <div class="form" >
-        <input type="hidden" name="confirm" required id="receiver" value="true" />
+        <input type="hidden" name="confirm" required id="confirm" value="true" />
         <input type="hidden" name="receiver" required id="receiver" value="{{receiver.id}}" />
         <input type="hidden" name="sender" required id="sender" value="{{sender.id}}" />
         <input type="hidden" name="amount" required id="amount" value="{{amount}}" />

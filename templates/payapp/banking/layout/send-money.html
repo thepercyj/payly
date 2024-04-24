@@ -42,7 +42,7 @@
                             {% if rec.id == request.user.id %}
                             {% else %}
                             <div>
-                                {% include 'banking/partials/search_result_card.html' with receiver=rec type='send' %}
+                                {% include '../modal/search_result_card.html' with receiver=rec type='send' %}
                             </div>
                             {% endif %}
                             {% endfor %}

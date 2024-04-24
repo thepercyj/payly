@@ -13,7 +13,7 @@ from payapp.core.banking.bank import get_user_bank_acc, delete_bank_acc, get_acc
 from popup.views import no_view
 from payapp.core.banking.search import search_by_id
 from payapp.core.banking.transfers import add_transfer_req, withdraw_trans_req, approve_trans_req, deny_trans_req, \
-    transfer_money, get_transfer_req_id
+    transfer_money, get_transfer_req_id, transfer_req_id
 from payapp.core.transactions.transactions import get_all_trans, get_trans_id, get_transaction_id
 
 
@@ -128,7 +128,7 @@ def list_transfer_requests(request):
             'group') is not None else 'all'
         results = get_transfer_req_id(request.user.id, group)
         context = {
-            'transfer_requests': results,
+            'transfer_req': results,
             'group': group,
             'count': len(results)
         }
@@ -151,7 +151,7 @@ def confirm_transfer_withdrawal(request):
 def confirm_transfer_approval(request):
     if request.method == 'GET':
         context = {
-            'tr': add_transfer_req(request.GET.get('rid'))
+            'tr': transfer_req_id(request.GET.get('rid'))
         }
         return render(request, 'payapp/banking/modal/approval-confirm.html', context)
     return HttpResponse('No content')
@@ -161,7 +161,7 @@ def confirm_transfer_approval(request):
 def confirm_transfer_denial(request):
     if request.method == 'GET':
         context = {
-            'tr': add_transfer_req(request.GET.get('rid'))
+            'tr': transfer_req_id(request.GET.get('rid'))
         }
         return render(request, 'payapp/banking/modal/denial-confirm.html', context)
     return HttpResponse('No content')
@@ -171,7 +171,7 @@ def confirm_transfer_denial(request):
 def request_withdrawal(request):
     if request.method == 'GET':
         rid = request.GET.get('rid')
-        tr_rq = add_transfer_req(rid)
+        tr_rq = transfer_req_id(rid)
         withdraw_trans_req(rid)
         return PopupHttpResponse(True, 'Request Withdrawn',
                                  f'Transfer request of {tr_rq.currency} {tr_rq.amount} was successfully withdrawn')
@@ -184,10 +184,10 @@ def approve_transfer(request):
     if request.method == 'GET':
         try:
             rid = request.GET.get('rid')
-            tr_rq = add_transfer_req(rid)
+            tr_rq = transfer_req_id(rid)
             approve_trans_req(rid)
             return PopupHttpResponse(True, 'Money Transferred',
-                                     f'You have successfully transferred {tr_rq.amount} {tr_rq.currency} to {tr_rq.recipient.first_name}.')
+                                     f'You have successfully transferred {tr_rq.amount} {tr_rq.currency} to {tr_rq.receiver.first_name}.')
         except TransferException as te:
             context = {
                 'message': te.message
@@ -204,7 +204,7 @@ def deny_transfer(request):
     if request.method == 'GET':
         try:
             rid = request.GET.get('rid')
-            tr_rq = add_transfer_req(rid)
+            tr_rq = transfer_req_id(rid)
             deny_trans_req(rid)
             return PopupHttpResponse(True, 'Transfer Request Declined',
                                      f'You have declined the transfer request from {tr_rq.recipient.first_name} for an amount of {tr_rq.currency} {tr_rq.amount} successfully')
@@ -241,7 +241,7 @@ def send_money(request):
 def send_money_details(request):
     print(f'user: {request.user}')
     if request.method == 'POST' and 'confirm' not in request.POST:
-        receiver = get_acc_id(request.POST.get('receiver'))
+        receiver = search_by_id(request.POST.get('receiver'))
         form = SendForm(request.user.id, request.POST)
         if form.is_valid():
             context = {
@@ -265,11 +265,11 @@ def send_money_details(request):
             receiver_id = request.POST.get('receiver')
             amount = request.POST.get('amount')
             currency = request.POST.get('currency')
-            receiver = get_acc_id(receiver_id)
+            receiver = search_by_id(receiver_id)
             transfer_money(sender_id, receiver_id, amount, currency)
             return HttpResponse(status=204, headers={
                 'HX-Trigger': json.dumps({
-                    'toast': {
+                    'popup': {
                         'success': True,
                         'title': 'Money Transferred',
                         'message': f'You have successfully transferred {amount} {currency} to {receiver.first_name}.'
@@ -285,9 +285,9 @@ def send_money_details(request):
         except Exception as e:
             return HttpResponse(f'Transaction Failed: {str(e)}')
 
-    elif 'recipient' not in request.GET:
+    elif 'receiver' not in request.GET:
         raise Http404()
-    receiver = get_acc_id(request.GET.get('receiver'))
+    receiver = search_by_id(request.GET.get('receiver'))
     context = {
         'form': SendForm(request.user.id),
         'receiver': receiver
@@ -327,7 +327,7 @@ def request_money(request):
 def request_money_details(request):
     print(f'user: {request.user}')
     if request.method == 'POST' and 'confirm' not in request.POST:
-        receiver = get_acc_id(request.POST.get('receiver'))
+        receiver = search_by_id(request.POST.get('receiver'))
         form = RequestForm(request.user.id, request.POST)
         if form.is_valid():
             context = {
@@ -370,7 +370,7 @@ def request_money_details(request):
 
     elif 'receiver' not in request.GET:
         raise Http404()
-    receiver = get_acc_id(request.GET.get('receiver'))
+    receiver = search_by_id(request.GET.get('receiver'))
     context = {
         'form': RequestForm(request.user.id),
         'receiver': receiver
