@@ -5,37 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/calculatorserver .py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gen-py/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gen-py/timestamp/TimestampService-remote" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gen-py/timestamp/TimestampService.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gen-py/timestamp/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gen-py/timestamp/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gen-py/timestamp/ttypes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notificationapp/migrations/0003_alter_notification_datetime.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payapp/migrations/0003_alter_transaction_datetime_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thrift-0.19.0.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/timestamp.thrift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/adca35f8-a19a-451a-80d5-ae86a33462a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/adca35f8-a19a-451a-80d5-ae86a33462a8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificationapp/core/notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/core/notifications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificationapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/core/banking/transfers.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/banking/transfers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notificationapp/layout/notification-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/layout/notification-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/layout/send-money.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/layout/send-money.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/list-transfer-requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/list-transfer-requests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/search_result_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/search_result_card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/send-money-confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/send-money-confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/send_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/send_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/transfer_request_list_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/transfer_request_list_item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapps.db" beforeDir="false" afterPath="$PROJECT_DIR$/webapps.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,31 +45,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.calculatorserver .executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/University of Sussex/Web Applications and Services/webapps2024/walletapp/migrations&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.calculatorserver .executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/University of Sussex/Web Applications and Services/webapps2024/walletapp/migrations",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.35402298",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\walletapp\migrations" />
@@ -214,6 +184,7 @@
       <workItem from="1713828538698" duration="776000" />
       <workItem from="1713911202054" duration="909000" />
       <workItem from="1713920950958" duration="194000" />
+      <workItem from="1714000046530" duration="1213000" />
     </task>
     <servers />
   </component>
