@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculatorserver .py" beforeDir="false" afterPath="$PROJECT_DIR$/calculatorserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/core/notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/core/notifications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/banking/transfers.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/banking/transfers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,8 +91,8 @@
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\notificationapp\core" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="calculatorserver " type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.calculatorserver (1)">
+    <configuration name="calculatorserver (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Online-Payment-Service" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,7 +106,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/calculatorserver .py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/calculatorserver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="calculatorserver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Online-Payment-Service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\University of Sussex\Web Applications and Services\webapps2024\calculatorserver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,6 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.calculatorserver (1)" />
         <item itemvalue="Python.calculatorserver " />
       </list>
     </recent_temporary>
@@ -185,7 +213,7 @@
       <workItem from="1713828538698" duration="776000" />
       <workItem from="1713911202054" duration="909000" />
       <workItem from="1713920950958" duration="194000" />
-      <workItem from="1714000046530" duration="2244000" />
+      <workItem from="1714000046530" duration="3761000" />
     </task>
     <servers />
   </component>

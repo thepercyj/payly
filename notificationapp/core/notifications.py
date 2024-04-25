@@ -6,12 +6,12 @@ from ..models import NotificationType, Notification
 from django.contrib.auth.models import User
 from django.db.models import Q
 import uuid
-import thriftpy
-from thriftpy.rpc import make_client
-from thriftpy.thrift import TException
+import thriftpy2
+from thriftpy2.rpc import make_client
+from thriftpy2.thrift import TException
 
 
-timestamp_thrift = thriftpy.load(
+timestamp_thrift = thriftpy2.load(
     'timestamp.thrift', module_name='timestamp_thrift')
 Timestamp = timestamp_thrift.TimestampService
 
