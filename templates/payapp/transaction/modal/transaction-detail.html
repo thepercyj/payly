@@ -8,7 +8,7 @@
             <h3 class="text-4 text-white fw-400 my-3">{{t.sender.first_name}} sent </h3>
             <div class="text-6 fw-500 text-white my-4">{{t.amount}} {{t.currency}}</div>
             <h3 class="text-4 text-white fw-400 my-3"> to {{t.receiver.first_name}} </h3>
-            <p class="text-white">at {{t.datetime|date:"D, d M Y"}}</p>
+            <p class="text-white">at {{ t.datetime }}</p>
         </div>
     </div>
     <div class="col-sm-7">

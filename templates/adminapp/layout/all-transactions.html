@@ -20,7 +20,7 @@
                             </div>
                             <div class="bg-white shadow-sm rounded py-4 mb-4">
                                 <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">All Transactions</h3>
-                                <div class="m-0" hx-get="{% url 'transaction-list' %}?limit=10&type=all" hx-trigger="load">
+                                <div class="m-0" hx-get="{% url 'get-all-transactions' %}?limit=10&type=all" hx-trigger="load">
                                 </div>
                             </div>
                         </div>

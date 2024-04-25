@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from payapp.core.transactions.transactions import get_trans_id
 from .core.data import get_no_of_transactions, get_no_of_users, get_all_transactions, get_all_users
 from .decorators import admin_required
 from popup.views import no_view
@@ -33,11 +35,21 @@ def all_users(request):
 @admin_required(login_url='login')
 def all_transactions(request):
     # redirect_if_not_super_user(request)
+    limit = int(request.GET.get('limit')
+                ) if request.GET.get('limit') else 100
+    sort = request.GET.get('sort')
+    sortby = request.GET.get('sortby')
     type = request.GET.get('type')
+    users = get_all_users(request.user) or []
+    if users is None or len(users) == 0:
+        return no_view(request, 'No users Found',
+                       'We didnot find any users yet. Whenever a new user registers, this page will show them.')
+
     if type == 'all':
         transactions = get_all_transactions()
     else:
-        return None
+        transactions = get_trans_id(
+            request.user.id, limit=limit, sort=sort, sortby=sortby)
 
     if transactions is None or len(transactions) == 0:
         return no_view(request, 'No Transactions Found',
@@ -51,9 +63,10 @@ def all_transactions(request):
 
     context = {
         'transactions': transactions,
-        'type': type
+        'type': type,
+        'users': users,
     }
-    return render(request, 'adminapp/modal/transactions_list.html', context)
+    return render(request, 'adminapp/modal/transaction_users_list.html', context)
 
 
 @admin_required(login_url='login')

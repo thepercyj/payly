@@ -1,0 +1,32 @@
+{% if users %}
+<div id="transaction-list">
+    {% for user in users %}
+    <div class="transaction-list">
+        <div class="transaction-item px-4 py-3">
+            <div class="row align-items-center flex-row">
+                {% if user.is_superuser %}
+                <div class="col text-center"> <span class="d-block text-4 fw-300"><img src="{{user.profile.profile_pic.url}}" class="avatar avatar-lg mb-2" /></span> <span class="text-muted">@{{user.username}}</span> </div>
+                <div class="col text-center"> <span class="d-block text-4">{{user.first_name}} {{user.last_name}}</span> <span class="text-muted">Admin</span></div>
+                <div class="col text-center"> <span class="d-sm-block text-3">{{user.email}}</span></div>
+                <div class="col text-center"> <span class="d-sm-block text-3">{{user.wallet.balance}} </span> <span class="text-muted">{{request.user.wallet.currency}}</span> </div>
+                                <div class="col text-center" hx-get="{% url 'edit-profile' %}" hx-target="#dialog" hx-trigger="click">
+                                    <button class="btn btn-danger btn-sm" ><i class="fa-solid fas fa-tasks mr-2 fa-sm"></i>
+                                    </button>
+                                </div>
+                {% else %}
+                <div class="col text-center"> <span class="d-block text-4 fw-300"><img src="{{user.profile.profile_pic.url}}" class="avatar avatar-lg mb-2" /></span> <span class="text-muted">@{{user.username}}</span> </div>
+                <div class="col text-center"> <span class="d-block text-4">{{user.first_name}} {{user.last_name}}</span> <span class="text-muted">User</span></div>
+                <div class="col text-center"> <span class="d-sm-block text-3">{{user.email}}</span></div>
+                <div class="col text-center"> <span class="d-sm-block text-3">{{user.wallet.balance}} </span> <span class="text-muted">{{request.user.wallet.currency}}</span> </div>
+                                <div class="col text-center" hx-get="{% url 'edit-profile' %}" hx-target="#dialog" hx-trigger="click">
+                                    <button class="btn btn-danger btn-sm" ><i class="fa-solid fas fa-tasks mr-2 fa-sm"></i>
+                                    </button>
+                                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
