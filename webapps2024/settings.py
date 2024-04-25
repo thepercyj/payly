@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-j3e0_*qctr5xr--7yxdrq^ef&seitmun6b5vw0lxf@lzta=$@9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-54-160-149-85.compute-1.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-54-160-149-85.compute-1.amazonaws.com', '127.0.0.1']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'notificationapp',
     'conversionapp',
     'adminapp',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
