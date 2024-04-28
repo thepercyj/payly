@@ -6,7 +6,7 @@
 <div id="content" class="py-4">
     <div class="container">
         <div class="row">
-            {% include 'main/layout/sidebar.html' %}
+            {% include 'main/layout/sidebar.html' with user_profile=user_profile %}
             <div class="col-lg-9">
                 <h2 class="fw-400 mb-3">All Users</h2>
                 <h6 class="text-muted">A complete list of all users inside the payment app.</h6>
@@ -21,7 +21,7 @@
                             <div class="bg-white shadow-sm rounded py-4 mb-4">
                                 <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">All Users</h3>
                                 <hr class="mb-2 mx-n2">
-                                <div class="m-0" hx-get="{% url 'get-all-users'%}?limit=10&type=all" hx-trigger="load">
+                                <div class="m-0" hx-get="{% url 'get-all-users' %}?limit=10&type=all" hx-trigger="load">
                                 </div>
                             </div>
                         </div>

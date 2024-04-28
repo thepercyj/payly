@@ -1,7 +1,12 @@
+import os
+from random import choice
+
 from django.contrib.auth.models import User
 from django.core.validators import EmailValidator
 from django import forms
 from django.utils.translation import gettext_lazy as translate
+
+from payapp.models import Currency, UserProfile
 from .validation import user_email_exists, username_exists
 
 
@@ -28,6 +33,13 @@ def password_strength(password):
         raise forms.ValidationError('The provided password is too short, minimum password length is 5. Try again !')
 
 
+def save_profile_picture():
+    profile_dir = 'media/profile/'
+    path = 'profile/'
+    profile_pics = os.listdir(profile_dir)
+    return os.path.join(path, choice(profile_pics))
+
+
 # Registration form to register new users.
 class RegistrationForm(forms.Form):
     firstname = forms.CharField(widget=forms.TextInput(
@@ -50,6 +62,8 @@ class RegistrationForm(forms.Form):
     def __init__(self, is_superuser: bool = False, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.is_superuser = is_superuser
+        # Fetching currency choices from the Currency model
+        self.fields['currency'] = forms.ChoiceField(choices=Currency.choices, widget=forms.Select(), required=True)
 
     # Adding custom clear function for form validations
 
@@ -74,11 +88,14 @@ class RegistrationForm(forms.Form):
         lastname = self.cleaned_data['lastname']
         email = self.cleaned_data['email']
         password = self.cleaned_data['confirm_password']
+        currency = self.cleaned_data['currency']
         superuser = User.objects.create_superuser if is_admin else User.objects.create_user
         user = superuser(username, email, password)
         user.first_name = firstname
         user.last_name = lastname
+        user.wallet.currency = currency
         user.save()
+
         return user
 
 

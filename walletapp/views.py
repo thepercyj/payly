@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from payapp.core.banking.bank import get_user_bank_acc
+from payapp.models import UserProfile
 from popup.popup import PopupHttpResponse
 from walletapp.core.wallet import add_money, change_currency
 from decimal import Decimal
@@ -97,5 +98,6 @@ def get_balance(request):
 # Http response for Currency Card
 @login_required(login_url='login')
 def get_currency(request):
+    user_profile = UserProfile.objects.get(user=request.user)
     # return ToastHttpResponse(False)
-    return render(request, 'walletapp/modal/currency_card.html')
+    return render(request, 'walletapp/modal/currency_card.html', {'user_profile': user_profile})

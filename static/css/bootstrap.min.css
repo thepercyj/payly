@@ -6709,7 +6709,13 @@ textarea.form-control-lg{
     border-radius:.3rem !important
 }
 .rounded-circle{
-    border-radius:50% !important
+    border-radius:50%;
+    height:100px;
+}
+
+.rounded-circle-navbar{
+    border-radius:50%;
+    height:50px;
 }
 .rounded-pill{
     border-radius:50rem !important

@@ -1,4 +1,7 @@
 import json
+import os
+from random import choice
+
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import Http404, HttpResponse
@@ -15,14 +18,15 @@ from payapp.core.banking.search import search_by_id
 from payapp.core.banking.transfers import add_transfer_req, withdraw_trans_req, approve_trans_req, deny_trans_req, \
     transfer_money, get_transfer_req_id, transfer_req_id
 from payapp.core.transactions.transactions import get_all_trans, get_trans_id, get_transaction_id
+from .models import UserProfile
 
 
 ############################### ACCOUNT VIEWS START ###############################
-
 @login_required(login_url='login')
 def account(request):
+    user_profile = UserProfile.objects.get(user=request.user)
     notifications = get_user_notifications(request.user.id)
-    return render(request, 'payapp/account/layout/index.html', {'count': len(notifications)})
+    return render(request, 'payapp/account/layout/index.html', {'count': len(notifications), 'user_profile': user_profile})
 
 
 @login_required(login_url='login')

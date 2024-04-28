@@ -17,7 +17,7 @@ class AddMoneyForm(forms.Form):
 # form to change default currency of user wallet
 class ChangeCurrencyForm(forms.Form):
     currency = forms.ChoiceField(choices=Currency.choices, required=True, widget=forms.Select(
-        attrs={'placeholder': 'Default'},
+        attrs={'placeholder': 'GBP'},
     ))
 
     def __init__(self, current_currency: Currency, *args, **kwargs):

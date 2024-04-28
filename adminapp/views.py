@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
+from notificationapp.models import Notification
 from payapp.core.transactions.transactions import get_trans_id
+from payapp.models import UserProfile
 from .core.data import get_no_of_transactions, get_no_of_users, get_all_transactions, get_all_users
 from .decorators import admin_required
 from popup.views import no_view
@@ -11,10 +13,15 @@ from .core.view_utils import redirect_if_not_super_user
 
 @admin_required(login_url='login')
 def index(request):
+    user = request.user
+    notification_count = Notification.objects.filter(user=user, seen=False).count()
+    user_profile = UserProfile.objects.get(user=request.user)
     context = {
         'users': get_no_of_users(),
+        'user_profile': user_profile,
         'success_transactions': get_no_of_transactions(True),
-        'pending_transactions': get_no_of_transactions(False)
+        'pending_transactions': get_no_of_transactions(False),
+        'count': notification_count
     }
     return render(request, 'adminapp/layout/dashboard.html', context)
 
@@ -22,14 +29,37 @@ def index(request):
 @admin_required(login_url='login')
 def all_users(request):
     # redirect_if_not_super_user(request)
+    user_profile = UserProfile.objects.get(user=request.user) or []
+    user = request.user
+    notification_count = Notification.objects.filter(user=user, seen=False).count()
     users = get_all_users(request.user) or []
     if users is None or len(users) == 0:
         return no_view(request, 'No users Found',
                           'We didnot find any users yet. Whenever a new user registers, this page will show them.')
     context = {
         'users': users,
+        'user_profile': user_profile,
+        'count': notification_count
     }
     return render(request, 'adminapp/modal/users_list.html', context)
+
+
+@admin_required(login_url='login')
+def all_user_trans_list(request):
+    user = request.user
+    notification_count = Notification.objects.filter(user=user, seen=False).count()
+    user_profile = UserProfile.objects.get(user=request.user) or []
+    # redirect_if_not_super_user(request)
+    users = get_all_users(request.user) or []
+    if users is None or len(users) == 0:
+        return no_view(request, 'No users Found',
+                       'We didnot find any users yet. Whenever a new user registers, this page will show them.')
+    context = {
+        'users': users,
+        'user_profile': user_profile,
+        'count': notification_count
+    }
+    return render(request, 'adminapp/modal/transaction_users_list.html', context)
 
 
 @admin_required(login_url='login')
@@ -40,16 +70,14 @@ def all_transactions(request):
     sort = request.GET.get('sort')
     sortby = request.GET.get('sortby')
     type = request.GET.get('type')
-    users = get_all_users(request.user) or []
-    if users is None or len(users) == 0:
-        return no_view(request, 'No users Found',
-                       'We didnot find any users yet. Whenever a new user registers, this page will show them.')
+    user = request.GET.get('user_id')
+    if user is not None:
+        user = int(user)
 
-    if type == 'all':
+    if type == 'users':
         transactions = get_all_transactions()
     else:
-        transactions = get_trans_id(
-            request.user.id, limit=limit, sort=sort, sortby=sortby)
+        transactions = get_trans_id(user, limit=limit, sort=sort, sortby=sortby)
 
     if transactions is None or len(transactions) == 0:
         return no_view(request, 'No Transactions Found',
@@ -64,21 +92,30 @@ def all_transactions(request):
     context = {
         'transactions': transactions,
         'type': type,
-        'users': users,
     }
-    return render(request, 'adminapp/modal/transaction_users_list.html', context)
+    return render(request, 'adminapp/modal/transactions_list.html', context)
 
 
 @admin_required(login_url='login')
 def index_transactions(request):
+    user_profile = UserProfile.objects.get(user=request.user)
+
+    context = {
+        'user_profile': user_profile
+    }
     # redirect_if_not_super_user(request)
-    return render(request, 'adminapp/layout/all-transactions.html')
+    return render(request, 'adminapp/layout/all-transactions.html', context)
 
 
 @admin_required(login_url='login')
 def index_users(request):
+    user_profile = UserProfile.objects.get(user=request.user)
+
+    context = {
+        'user_profile': user_profile
+    }
     # redirect_if_not_super_user(request)
-    return render(request, 'adminapp/layout/all-users.html')
+    return render(request, 'adminapp/layout/all-users.html', context)
 
 
 @admin_required(login_url='login')

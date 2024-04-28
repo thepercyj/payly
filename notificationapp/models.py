@@ -24,3 +24,4 @@ class Notification(models.Model):
     # data=models.TextField(default='None')
     message = models.TextField(default="")
     title = models.TextField(default="")
+    notification_count = models.IntegerField(default=0)

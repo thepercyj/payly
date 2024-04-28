@@ -3,6 +3,8 @@ from django.contrib.auth import logout as leave
 from django.contrib.auth.decorators import login_required
 from payapp.core.transactions.transactions import unique_trans_id
 from notificationapp.core.notifications import get_user_notifications
+from payapp.core.account.account import profile_id
+from payapp.models import UserProfile
 from popup.views import no_view
 
 
@@ -19,9 +21,17 @@ def alert(request):
 @login_required(login_url='login')
 def dashboard(request):
     notifications = get_user_notifications(request.user.id)
+    user_profile = UserProfile.objects.get(user=request.user)
+
     if request.user.is_superuser:
         return redirect('admin')
-    return render(request, 'main/layout/dashboard.html', {'title': 'Dashboard', 'count': len(notifications)})
+
+    context = {
+        'title': 'Dashboard',
+        'count': len(notifications),
+        'user_profile': user_profile
+    }
+    return render(request, 'main/layout/dashboard.html', context)
 
 
 @login_required(login_url='login')

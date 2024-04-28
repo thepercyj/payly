@@ -31,7 +31,7 @@
 
           </ul>
         </li>
-        <li class="dropdown profile ms-2"> <a class="px-0 dropdown-toggle" href="#"><img class="rounded-circle" src="{% static 'img/profile.jpg'%}" alt=""></a>
+        <li class="dropdown profile ms-2"> <a class="px-0 dropdown-toggle" href="#"><img class="rounded-circle-navbar" src="{{ user_profile.profile_picture.url }}" alt=""></a>
           <ul class="dropdown-menu">
             <li class="text-center text-3 py-2">Hi, {{ user.first_name }} {{ user.last_name }}</li>
             <li class="dropdown-divider mx-n3"></li>
