@@ -11,7 +11,7 @@ def notification(request):
     notifications = get_user_notifications(user.id, limit=10)
     context = {
         'notifications': notifications.all(),
-        'count': notification_count
+        'notification_count': notification_count
     }
     return render(request, 'notificationapp/layout/notification-detail.html', context)
 
@@ -23,6 +23,6 @@ def get_notifications(request):
     notifications = get_user_notifications(user.id, limit=5)
     context = {
         'notifications': notifications.all(),
-        'count': notification_count
+        'notification_count': notification_count
     }
     return render(request, 'notificationapp/layout/notification-list.html', context)

@@ -1,15 +1,9 @@
 {% load static %}
 {% load crispy_forms_tags %}
-<form hx-post="{% url 'create-bank-account' %}" >
-    <div class="d-flex align-items-center">
-        <div class="rounded-circle p-3 shadow-sm bg-success mr-2">
-            <i class="fa-solid fa-building-columns fa-xl text-light"></i>
-        </div>
-        
-        <div class="">
-            <h5 class="m-0 p-0">Add New Bank Account</h5>
-            
-        </div>
+<form hx-post="{% url 'create-bank-account' %}">
+    <div class="text-center">
+        <button type="button" class="btn-close text-2 float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="m-0 p-0">Add New Bank Account</h5>
     </div>
     {% csrf_token %}
     <div class="form-group mt-4">
@@ -18,8 +12,7 @@
     <div class="form-group">
         {{ form.account_no|as_crispy_field }}
     </div>
-    <button class="btn btn-outline-success w-100" type="submit">Save </button>
-    <button class="btn btn-outline-warning w-100 mt-2" data-dismiss="modal">Cancel </button>
+    <button class="btn btn-primary w-100" type="submit">Save </button>
 </form>
 
 

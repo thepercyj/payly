@@ -21,7 +21,7 @@ def index(request):
         'user_profile': user_profile,
         'success_transactions': get_no_of_transactions(True),
         'pending_transactions': get_no_of_transactions(False),
-        'count': notification_count
+        'notification_count': notification_count
     }
     return render(request, 'adminapp/layout/dashboard.html', context)
 
@@ -57,7 +57,7 @@ def all_user_trans_list(request):
     context = {
         'users': users,
         'user_profile': user_profile,
-        'count': notification_count
+        'notification_count': notification_count
     }
     return render(request, 'adminapp/modal/transaction_users_list.html', context)
 

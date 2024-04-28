@@ -40,7 +40,7 @@
                         <div class="row m-0 mt-4  w-100">
                             {% for rec in search_results %}
                             <div>
-                                {% include '../modal/search_result_card.html' with receiver=rec type='request' %}
+                                {% include '../modal/search.html' with receiver=rec type='request' user_profile=user_profile %}
                             </div>
 
                             {% endfor %}

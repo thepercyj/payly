@@ -29,7 +29,7 @@
 
   <header id="header">
     <div class="container">
-      {% include 'main/layout/navbar.html' with count=count user_profile=user_profile %}
+      {% include 'main/layout/navbar.html' with notification_count=notification_count user_profile=user_profile %}
     </div>
   </header>
   <div aria-live="polite" aria-atomic="true" style="position: relative; z-index: 5;">
@@ -37,13 +37,11 @@
          aria-atomic="true" data-delay="10000">
       <div class="toast-header">
         <i class="fa-solid fas fa-check" id="popup-icon"></i>
+        <button  type="button" style="position: absolute; top: 0; left: 305px;" class="btn-close text-2 float-end" data-bs-dismiss="toast" aria-label="Close">
+        </button>
         <strong id="popup-title" class="mr-auto">
 
         </strong>
-
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="popup" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
       <div class="toast-body" id="popup-message">
         Hello, This is a test for popups are working or not.
@@ -74,20 +72,8 @@
     </div>
   </div>
 
-  <a id="back-to-top" data-bs-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
+  <a id="back-to-top" data-bs-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fas fa-chevron-up"></i></a>
 
-  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content bg-transparent border-0">
-        <button type="button" class="btn-close btn-close-white ms-auto me-n3" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="modal-body p-0">
-          <div class="ratio ratio-16x9">
-            <iframe id="video" src="" allow="autoplay;" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/moment.min.js' %}"></script>

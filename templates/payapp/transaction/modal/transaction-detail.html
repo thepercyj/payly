@@ -4,7 +4,13 @@
 <div class="row">
     <div class="col justify-content-center bg-primary rounded-start py-4">
         <div class="my-auto text-center">
-            <div class="text-17 text-white my-3"><i class="fas fa-user"></i></div>
+            {% with user_profile=t.sender.userprofile %}
+            <div class="text-17 text-white my-3"><img src="{{ user_profile.profile_picture.url }}" class="avatar avatar-lg"/></div>
+            {% endwith %}
+            <i class="fa-solid fas fa-chevron-down mx-5"></i>
+            {% with user_profile=t.receiver.userprofile %}
+            <div class="text-17 text-white my-3"><img src="{{ user_profile.profile_picture.url }}" class="avatar avatar-lg"/></div>
+            {% endwith %}
             <h3 class="text-4 text-white fw-400 my-3">{{t.sender.first_name}} sent </h3>
             <div class="text-6 fw-500 text-white my-4">{{t.amount}} {{t.currency}}</div>
             <h3 class="text-4 text-white fw-400 my-3"> to {{t.receiver.first_name}} </h3>

@@ -8,7 +8,7 @@
     document.body.addEventListener('htmx:afterSwap', function(e){
         if(e.detail.target.id === 'dialog'){
             const dialogContent = document.querySelector('#dialog');
-            dialogContent.style.maxHeight = '300px';
+            dialogContent.style.maxHeight = '800px';
             dialogContent.style.overflowY = 'auto';
             dialogModal.show();
         }
@@ -26,4 +26,5 @@
         popup.show();
         dialogModal.hide();
     });
+
 })();

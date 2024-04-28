@@ -1,4 +1,6 @@
-<img src="{{receiver.profile.profile_pic.url}}" class="avatar avatar-lg"/>
+{% with user_profile=receiver.userprofile %}
+<img src="{{ user_profile.profile_picture.url }}" class="avatar avatar-lg"/>
+{% endwith %}
 <h3 class="h4 text-truncate m-0">{{receiver.first_name}} {{receiver.last_name}}</h3>
 <p class="text-muted text-truncate m-0">{{receiver.email}}</p>
 <small class="text-muted">@{{receiver.username}}</small><br>

@@ -13,8 +13,10 @@ from django.contrib.auth.decorators import login_required
 # index page of wallet app
 @login_required(login_url='login')
 def wallet(request):
+    user_profile = UserProfile.objects.get(user=request.user)
     context = {
-        'accounts': get_user_bank_acc(request.user.id)
+        'accounts': get_user_bank_acc(request.user.id),
+        'user_profile': user_profile
     }
     return render(request, 'walletapp/layout/index.html', context)
 

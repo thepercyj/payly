@@ -2,14 +2,14 @@
 {% load crispy_forms_tags %}
 
 <form hx-post="{% url 'change-currency' %}" >
-    <h5 class="m-0 p-0">Change default currency</h5>
+    <h5 class="text-center">Change default currency<button type="button" class="btn-close text-2 float-end" data-bs-dismiss="modal" aria-label="Close"></button></h5>
+    <br>
     {% csrf_token %}
     <div class="">
         {{ form.currency|as_crispy_field}}
     </div>
    
-    <button class="btn btn-outline-success w-100" type="submit"><i class="fa fa-wallet mr-2"></i>Add to wallet</button>
-    <button class="btn btn-outline-warning w-100 mt-2" data-dismiss="modal"><i class="fa fa-close mr-2"></i>Cancel </button>
+    <button class="btn btn-primary w-100" type="submit"><i class="mr-2"></i>Change Currency</button>
 </form>
 
 

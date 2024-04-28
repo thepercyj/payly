@@ -2,7 +2,8 @@
 {% load crispy_forms_tags %}
 
 <div>
-    <h5 class="m-0 p-0 mb-4">Select Bank Account</h5>
+    <h5 class="text-center">Select Bank Account<button type="button" class="btn-close text-2 float-end" data-bs-dismiss="modal" aria-label="Close"></button></h5>
+    <br>
     {% for account in accounts %}
     <div hx-get="{% url 'add-money' %}?id={{account.id}}" hx-trigger="click"
          hx-target="#dialog">

@@ -2,15 +2,20 @@
 {% load crispy_forms_tags %}
 <form hx-post="{% url 'request-money-details' %}" hx-target='#dialog'>
     <div class="text-center">
-        <div >
-            <img src="{{sender.profile.profile_pic.url}}" class="avatar avatar-lg" />
-            <i class="fa-solid fa-arrows-left-right mx-4"></i>
-            <img src="{{receiver.profile.profile_pic.url}}" class="avatar avatar-lg" />
+        <button type="button" class="btn-close text-2 float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div>
+            {% with user_profile=sender.userprofile %}
+            <img src="{{ user_profile.profile_picture.url }}" class="avatar avatar-lg" />
+            {% endwith %}
+            <i class="fa-solid fas fa-exchange-alt mx-4"></i>
+            {% with user_profile=receiver.userprofile %}
+            <img src="{{ user_profile.profile_picture.url }}" class="avatar avatar-lg" />
+            {% endwith %}
         </div>
         <h3 class="h5 mt-4">You are requesting {{amount}} {{currency}} from {{receiver.first_name}} {{receiver.last_name}}</h3>
-        <p class="text-muted text-truncate m-0"><i class="fa-solid fa-wallet mr-2"></i>Wallet balance: {{sender.wallet.balance}}
+        <p class="text-muted text-truncate m-0"><i class="fa-solid fas fa-wallet mr-2"></i> Balance: {{sender.wallet.balance}}
         </p>
-        <p class="text-muted text-truncate m-0"><i class="fa-solid fa-dollar mr-1"></i>Currency: {{sender.wallet.currency}}</p>
+        <p class="text-muted text-truncate m-0"><i class="fa-solid mr-1"></i>Currency: {{sender.wallet.currency}}</p>
     </div>
     {% csrf_token %}
     <div class="form" >
@@ -23,8 +28,5 @@
     </div>
     <button class="btn btn-primary w-100 mt-4" type="submit">
         Confirm
-    </button>
-    <button class="btn btn-outline-warning w-100 mt-2" id="cancel_send_btn" data-dismiss="modal">
-        Cancel
     </button>
 </form>
