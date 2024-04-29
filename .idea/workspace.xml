@@ -5,29 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/notificationapp/context_processors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/payapp/context_processors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificationapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificationapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificationapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/transaction_users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/transaction_users_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/transactions_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/transactions_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/layout/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/layout/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/modal/recent-transfer-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/modal/recent-transfer-item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notificationapp/layout/notification-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/layout/notification-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/transaction/modal/transaction-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/transaction/modal/transaction-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/walletapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapps.db" beforeDir="false" afterPath="$PROJECT_DIR$/webapps.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapps2024/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapps2024/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +219,7 @@
       <workItem from="1714309246254" duration="18432000" />
       <workItem from="1714388598645" duration="6369000" />
       <workItem from="1714399859105" duration="6465000" />
-      <workItem from="1714407338787" duration="4204000" />
+      <workItem from="1714407338787" duration="8147000" />
     </task>
     <servers />
   </component>
