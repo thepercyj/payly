@@ -6,7 +6,7 @@
 <div id="content" class="py-4">
     <div class="container">
         <div class="row">
-            {% include 'main/layout/sidebar.html' %}
+            {% include 'main/layout/sidebar.html' with user_profile=user_profile %}
             <div class="col-lg-9" >
                 <div class="bg-white shadow-sm rounded py-4 mb-4">
                     <h3 class="text-5 fw-400 px-4 mb-4">Notifications</h3>

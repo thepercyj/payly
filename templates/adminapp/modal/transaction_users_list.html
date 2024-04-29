@@ -10,7 +10,7 @@
                 <div class="col text-center"> <span class="d-block text-4">{{user.first_name}} {{user.last_name}}</span> <span class="text-muted">Admin</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.email}}</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.wallet.balance}} </span> <span class="text-muted">{{request.user.wallet.currency}}</span> </div>
-                <div class="col text-center" hx-get="{% url 'get-all-transactions' %}?limit=10&user_id={{ user.id }}" hx-target="#dialog" hx-trigger="click">
+                <div class="col text-center" hx-get="{% url 'get-all-transactions' %}?limit=10&type=all&user_id={{ user.id }}" hx-target="#dialog" hx-trigger="click">
                     <button class="btn btn-danger btn-sm" ><i class="fa-solid fas fa-tasks mr-2 fa-sm"></i>
                     </button>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="col text-center"> <span class="d-block text-4">{{user.first_name}} {{user.last_name}}</span> <span class="text-muted">User</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.email}}</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.wallet.balance}} </span> <span class="text-muted">{{request.user.wallet.currency}}</span> </div>
-                <div class="col text-center" hx-get="{% url 'get-all-transactions' %}?limit=10&user_id={{ user.id }}" hx-target="#dialog" hx-trigger="click" >
+                <div class="col text-center" hx-get="{% url 'get-all-transactions' %}?limit=10&type=all&user_id={{ user.id }}" hx-target="#dialog" hx-trigger="click" >
                     <button class="btn btn-danger btn-sm" ><i class="fa-solid fas fa-tasks mr-2 fa-sm"></i>
                     </button>
                 </div>

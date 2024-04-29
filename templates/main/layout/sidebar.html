@@ -4,9 +4,12 @@
 
     <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
         <div class="profile-thumb mt-3 mb-4"> <img class="rounded-circle" src="{{ user_profile.profile_picture.url }}" alt="">
+            <div class="profile-thumb-edit custom-file bg-primary text-white" data-bs-toggle="tooltip" title="Edit Profile"><a href="{% url 'account' %}" class="text-white"><i class="fas fa-edit mb-0"></i></a>
+            </div>
         </div>
+
         <p class="text-3 fw-500 mb-2">Hello, {{ user.username }}</p>
-        <p class="mb-2"><a href="{% url 'account' %}" class="text-5 text-light" data-bs-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></a></p>
+        <p class="mb-2"></p>
     </div>
 
     <div class="bg-white shadow-sm rounded text-center p-3 mb-4">

@@ -46,6 +46,7 @@ def login(request):
     message_store = get_messages(request)
     context = {'title': 'Sign In',
                'form': form, 'messages': message_store}
+    print("Test")
     message_store.used = True
     return render(request, 'register/login.html', context)
 

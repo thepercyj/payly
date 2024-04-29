@@ -14,23 +14,18 @@
             <h3 class="text-4 text-white fw-400 my-3">{{t.sender.first_name}} sent </h3>
             <div class="text-6 fw-500 text-white my-4">{{t.amount}} {{t.currency}}</div>
             <h3 class="text-4 text-white fw-400 my-3"> to {{t.receiver.first_name}} </h3>
-            <p class="text-white">at {{ t.datetime }}</p>
         </div>
     </div>
     <div class="col-sm-7">
         <h5 class="text-5 fw-400 m-3">Transaction Details
             <button type="button" class="btn-close text-2 float-end" data-bs-dismiss="modal" aria-label="Close"></button>
         </h5>
-        <hr>
         <div class="px-3">
-            <ul class="list-unstyled">
-                <li class="mb-2">Payment Amount <span class="float-end text-3">{{t.amount}} {{t.currency}}</span></li>
-            </ul>
-            <hr class="mb-2">
-            <p class="d-flex align-items-center fw-500 mb-0">Total Balance <span class="text-3 ms-auto">{{t.balance}} {{t.currency}}</span></p>
+            <hr class="mb-4 mt-2">
+            <p class="d-flex align-items-center fw-500 mb-0"> Transfer Amount <span class="text-3 ms-auto">{{t.amount}} {{t.currency}}</span></p>
             <hr class="mb-4 mt-2">
             <ul class="list-unstyled">
-                <li class="fw-500">Paid By:</li>
+                <li class="fw-500">Transfered By:</li>
                 <li class="text-muted">{{t.sender.first_name}}</li>
             </ul>
             <ul class="list-unstyled">
@@ -52,6 +47,11 @@
                 <li class="fw-500">Status:</li>
                 <li class="text-muted"><span class="text-danger">{{t.type}}<i class="fas fa-caret-down"></i></span></li>
             </ul>
+
+            <ul class="list-unstyled">
+                <li class="fw-500">Date:</li>
+                <li class="text-muted">{{t.datetime}}</li>
+            </ul>
             {% else %}
             <ul class="list-unstyled">
                 <li class="fw-500">Description:</li>
@@ -61,6 +61,11 @@
             <ul class="list-unstyled">
                 <li class="fw-500">Status:</li>
                 <li class="text-muted"><span class="text-success">{{t.type}}<i class="fas fa-caret-up"></i></span></li>
+            </ul>
+
+            <ul class="list-unstyled">
+                <li class="fw-500">Date:</li>
+                <li class="text-muted">{{t.datetime}}</li>
             </ul>
             {% endif %}
 

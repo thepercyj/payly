@@ -1,6 +1,4 @@
 import json
-import os
-from random import choice
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -9,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from .forms import EditUserProfileForm
 from popup.popup import PopupHttpResponse
-from notificationapp.core.notifications import get_user_notifications
 from walletapp.core.exception import TransferException
 from .forms import BankAccForm, SearchUserForm, RequestForm, SendForm
 from payapp.core.banking.bank import get_user_bank_acc, delete_bank_acc, get_acc_id
@@ -18,15 +15,12 @@ from payapp.core.banking.search import search_by_id
 from payapp.core.banking.transfers import add_transfer_req, withdraw_trans_req, approve_trans_req, deny_trans_req, \
     transfer_money, get_transfer_req_id, transfer_req_id
 from payapp.core.transactions.transactions import get_all_trans, get_trans_id, get_transaction_id
-from .models import UserProfile
 
 
 ############################### ACCOUNT VIEWS START ###############################
 @login_required(login_url='login')
 def account(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    notifications = get_user_notifications(request.user.id)
-    return render(request, 'payapp/account/layout/index.html', {'count': len(notifications), 'user_profile': user_profile})
+    return render(request, 'payapp/account/layout/index.html')
 
 
 @login_required(login_url='login')
@@ -67,9 +61,7 @@ def change_password(request):
 ############################### BANKING VIEWS START ###############################
 @login_required(login_url='login')
 def banking(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    notifications = get_user_notifications(request.user.id)
-    return render(request, 'payapp/banking/layout/index.html', {'count': len(notifications), 'user_profile': user_profile })
+    return render(request, 'payapp/banking/layout/index.html')
 
 
 @login_required(login_url='login')
@@ -120,10 +112,8 @@ def remove_bank_acc(request):
 
 @login_required(login_url='login')
 def transfer_requests(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    notifications = get_user_notifications(request.user.id)
     if request.method == 'GET':
-        return render(request, 'payapp/banking/layout/tr-requests.html', {'count': len(notifications), 'user_profile': user_profile })
+        return render(request, 'payapp/banking/layout/tr-requests.html')
     raise Http404()
 
 
@@ -227,8 +217,6 @@ def deny_transfer(request):
 
 @login_required(login_url='login')
 def send_money(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    notifications = get_user_notifications(request.user.id)
     form = SearchUserForm()
     results = []
     if request.method == 'GET':
@@ -239,7 +227,7 @@ def send_money(request):
             results = form.search()
 
         return render(request, 'payapp/banking/layout/send-money.html',
-                      {'form': form, 'search_results': results, 'count': len(notifications), 'user_profile': user_profile})
+                      {'form': form, 'search_results': results})
     else:
         raise Http404()
 
@@ -249,7 +237,6 @@ def send_money_details(request):
     print(f'user: {request.user}')
     if request.method == 'POST' and 'confirm' not in request.POST:
         receiver = search_by_id(request.POST.get('receiver'))
-        user_profile = UserProfile.objects.get(user=receiver)
         form = SendForm(request.user.id, request.POST)
         if form.is_valid():
             context = {
@@ -258,13 +245,11 @@ def send_money_details(request):
                 'sender': request.user,
                 'amount': request.POST.get('amount'),
                 'currency': request.POST.get('currency'),
-                'user_profile': user_profile
             }
             return render(request, 'payapp/banking/modal/send-money-confirm.html', context)
         context = {
             'form': form,
             'receiver': receiver,
-            'user_profile': user_profile
         }
         return render(request, 'payapp/banking/modal/send-money-details.html', context)
 
@@ -298,11 +283,9 @@ def send_money_details(request):
     elif 'receiver' not in request.GET:
         raise Http404()
     receiver = search_by_id(request.GET.get('receiver'))
-    user_profile = UserProfile.objects.get(user=receiver)
     context = {
         'form': SendForm(request.user.id),
         'receiver': receiver,
-        'user_profile': user_profile
     }
     return render(request, 'payapp/banking/modal/send-money-details.html', context)
 
@@ -319,8 +302,6 @@ def detail_type(request):
 
 @login_required(login_url='login')
 def request_money(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    notifications = get_user_notifications(request.user.id)
     form = SearchUserForm()
     results = []
     if request.method == 'GET':
@@ -331,15 +312,13 @@ def request_money(request):
             results = form.search()
 
         return render(request, 'payapp/banking/layout/request-money.html',
-                      {'form': form, 'search_results': results, 'count': len(notifications), 'user_profile': user_profile })
+                      {'form': form, 'search_results': results})
     else:
         raise Http404()
 
 
 @login_required(login_url='login')
 def request_money_details(request):
-    print(f'user: {request.user}')
-    user_profile = UserProfile.objects.get(user=request.user)
     if request.method == 'POST' and 'confirm' not in request.POST:
         receiver = search_by_id(request.POST.get('receiver'))
         form = RequestForm(request.user.id, request.POST)
@@ -350,13 +329,11 @@ def request_money_details(request):
                 'sender': request.user,
                 'amount': request.POST.get('amount'),
                 'currency': request.POST.get('currency'),
-                'user_profile': user_profile
             }
             return render(request, 'payapp/banking/modal/request-money-confirm.html', context)
         context = {
             'form': form,
             'receiver': receiver,
-            'user_profile': user_profile
         }
         return render(request, 'payapp/banking/modal/request-money-details.html', context)
 
@@ -401,10 +378,8 @@ def request_money_details(request):
 
 @login_required(login_url='login')
 def transaction(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    notifications = get_user_notifications(request.user.id)
     if request.method == 'GET':
-        return render(request, 'payapp/transaction/layout/list.html', {'count': len(notifications), 'user_profile': user_profile })
+        return render(request, 'payapp/transaction/layout/list.html')
     raise Http404()
 
 
@@ -447,7 +422,6 @@ def transaction_list(request):
 
 @login_required(login_url='login')
 def transaction_detail(request):
-    user_profile = UserProfile.objects.get(user=request.user)
     if request.method == 'GET':
         tid = request.GET.get('tid')
         transaction = get_transaction_id(tid)
@@ -457,7 +431,6 @@ def transaction_detail(request):
             transaction.type = 'CREDIT'
         context = {
             't': transaction,
-            'user_profile': user_profile
         }
         return render(request, 'payapp/transaction/modal/transaction-detail.html', context)
     raise Http404()

@@ -21,7 +21,12 @@ class Notification(models.Model):
     type = models.CharField(max_length=10, choices=NotificationType.choices, default=NotificationType.INFO)
     datetime = models.DateTimeField(auto_now_add=False)
     seen = models.BooleanField(default=False)
-    # data=models.TextField(default='None')
     message = models.TextField(default="")
     title = models.TextField(default="")
     notification_count = models.IntegerField(default=0)
+
+    def mark_as_read(self):
+
+        self.seen = True
+        self.save()
+        return None

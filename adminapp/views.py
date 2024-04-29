@@ -13,15 +13,10 @@ from .core.view_utils import redirect_if_not_super_user
 
 @admin_required(login_url='login')
 def index(request):
-    user = request.user
-    notification_count = Notification.objects.filter(user=user, seen=False).count()
-    user_profile = UserProfile.objects.get(user=request.user)
     context = {
         'users': get_no_of_users(),
-        'user_profile': user_profile,
         'success_transactions': get_no_of_transactions(True),
         'pending_transactions': get_no_of_transactions(False),
-        'notification_count': notification_count
     }
     return render(request, 'adminapp/layout/dashboard.html', context)
 
@@ -29,26 +24,18 @@ def index(request):
 @admin_required(login_url='login')
 def all_users(request):
     # redirect_if_not_super_user(request)
-    user_profile = UserProfile.objects.get(user=request.user) or []
-    user = request.user
-    notification_count = Notification.objects.filter(user=user, seen=False).count()
     users = get_all_users(request.user) or []
     if users is None or len(users) == 0:
         return no_view(request, 'No users Found',
                           'We didnot find any users yet. Whenever a new user registers, this page will show them.')
     context = {
         'users': users,
-        'user_profile': user_profile,
-        'count': notification_count
     }
     return render(request, 'adminapp/modal/users_list.html', context)
 
 
 @admin_required(login_url='login')
 def all_user_trans_list(request):
-    user = request.user
-    notification_count = Notification.objects.filter(user=user, seen=False).count()
-    user_profile = UserProfile.objects.get(user=request.user) or []
     # redirect_if_not_super_user(request)
     users = get_all_users(request.user) or []
     if users is None or len(users) == 0:
@@ -56,8 +43,6 @@ def all_user_trans_list(request):
                        'We didnot find any users yet. Whenever a new user registers, this page will show them.')
     context = {
         'users': users,
-        'user_profile': user_profile,
-        'notification_count': notification_count
     }
     return render(request, 'adminapp/modal/transaction_users_list.html', context)
 
@@ -98,24 +83,14 @@ def all_transactions(request):
 
 @admin_required(login_url='login')
 def index_transactions(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-
-    context = {
-        'user_profile': user_profile
-    }
     # redirect_if_not_super_user(request)
-    return render(request, 'adminapp/layout/all-transactions.html', context)
+    return render(request, 'adminapp/layout/all-transactions.html')
 
 
 @admin_required(login_url='login')
 def index_users(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-
-    context = {
-        'user_profile': user_profile
-    }
     # redirect_if_not_super_user(request)
-    return render(request, 'adminapp/layout/all-users.html', context)
+    return render(request, 'adminapp/layout/all-users.html')
 
 
 @admin_required(login_url='login')

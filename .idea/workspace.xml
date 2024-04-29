@@ -5,48 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/notificationapp/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payapp/context_processors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notificationapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/account_views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/bank_views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payapp/transactions_views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/payapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/transaction_users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/transaction_users_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/transactions_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/transactions_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/layout/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/layout/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/layout/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/modal/alert.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/modal/alert.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main/modal/recent-transfer-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/modal/recent-transfer-item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/layout/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/layout/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/layout/request-money.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/layout/request-money.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/layout/send-money.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/layout/send-money.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/layout/tr-requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/layout/tr-requests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/bank_account_success.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/create-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/create-account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/list-transfer-requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/list-transfer-requests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-failure.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-failure.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/request-money-success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/search_result_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/send-money-confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/send-money-confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/send-money-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/send-money-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/send_dialog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/send_success.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/transfer-request-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/transfer_request_list_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/transfer-request-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/banking/modal/withdraw-confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/banking/modal/withdraw-confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payapp/transaction/layout/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/transaction/layout/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/notificationapp/layout/notification-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/layout/notification-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/payapp/transaction/modal/transaction-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payapp/transaction/modal/transaction-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/popup/layout/nothing.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/popup/layout/nothing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/walletapp/layout/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/layout/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/add_money_amount_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/add_money_amount_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/add_money_bank_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/add_money_bank_select.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/change_currency.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/change_currency.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/walletapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapps.db" beforeDir="false" afterPath="$PROJECT_DIR$/webapps.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapps2024/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapps2024/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +109,7 @@
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\notificationapp\core" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.calculatorserver (1)">
+  <component name="RunManager" selected="Python.calculatorserver">
     <configuration name="calculatorserver (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Online-Payment-Service" />
       <option name="ENV_FILES" value="" />
@@ -255,7 +236,10 @@
       <workItem from="1714120253686" duration="1076000" />
       <workItem from="1714121474112" duration="42000" />
       <workItem from="1714257194100" duration="15448000" />
-      <workItem from="1714309246254" duration="11802000" />
+      <workItem from="1714309246254" duration="18432000" />
+      <workItem from="1714388598645" duration="6369000" />
+      <workItem from="1714399859105" duration="6465000" />
+      <workItem from="1714407338787" duration="4204000" />
     </task>
     <servers />
   </component>
