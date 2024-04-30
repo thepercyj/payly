@@ -63,7 +63,7 @@ def create_transaction(transaction_id: str, sender: User, receiver: User, status
             datetime=timestamp,
         )
         transaction.save()
-
+        print(f"The {sender} is sending money to , {receiver} and is successfully saved in database.")
     except TException as e:
         return HttpResponse("An error occurred: {}".format(str(e)))
 

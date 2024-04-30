@@ -1,10 +1,15 @@
 <li class="text-center text-3 py-2">Notifications</li>
 <li class="dropdown-divider mx-n3"></li>
+{% if notifications %}
 <li>
     {% for notif in notifications %}
     {% include '../modal/notification-item.html' with notification=notif %}
 </li>
 <li class="dropdown-divider mx-n3"></li>
 {% endfor %}
+{% else %}
+<li class="text-center">No new notifications</li>
+<li class="dropdown-divider mx-n3"></li>
+{% endif %}
 
 <li><a class="dropdown-item text-center text-primary px-0" href="{% url 'notification' %}">See all Notifications</a></li>

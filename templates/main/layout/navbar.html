@@ -26,7 +26,7 @@
     <nav class="login-signup navbar navbar-expand">
       <ul class="navbar-nav">
         <li class="dropdown notifications"> <a class="dropdown-toggle" href="#"><span class="text-5"><i class="far fa-bell"></i></span><span class="count">{{ notification_count }}</span></a>
-          <ul class="dropdown-menu " hx-get="{% url 'get-notifications' %}" hx-trigger="load, popup from:body"
+          <ul class="dropdown-menu " id="notification-link" hx-get="{% url 'get-notifications' %}" hx-trigger="load, popup from:body"
               hx-swap="outerHtml">
 
           </ul>
