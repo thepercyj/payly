@@ -3,7 +3,7 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.9 (venv) (2)" />
   </component>
-  <component name="ProjectRootManager">
-    <output url="file://D:/webapps2024/out" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="Python 3.9 (venv)" project-jdk-type="Python SDK">
+    <output url="file://$PROJECT_DIR$/../../../webapps2024/out" />
   </component>
 </project>
