@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/key.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thrift-0.19.0.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thriftpy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapps.csr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +204,7 @@
       <workItem from="1714431369307" duration="3532000" />
       <workItem from="1714476054659" duration="1841000" />
       <workItem from="1714513633128" duration="12912000" />
-      <workItem from="1714565036017" duration="913000" />
+      <workItem from="1714565036017" duration="1338000" />
     </task>
     <servers />
   </component>
@@ -225,6 +220,6 @@
     <SUITE FILE_PATH="coverage/webapps2024$calculatorserver__1_.coverage" NAME="calculatorserver (1) Coverage Results" MODIFIED="1714312132542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/webapps2024$script.coverage" NAME="script Coverage Results" MODIFIED="1714525724221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs/source" />
     <SUITE FILE_PATH="coverage/webapps2024$calculatorserver.coverage" NAME="calculatorserver Coverage Results" MODIFIED="1714476944084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/webapps2024$thrift__1_.coverage" NAME="thrift (1) Coverage Results" MODIFIED="1714527503574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/webapps2024$thrift__1_.coverage" NAME="thrift (1) Coverage Results" MODIFIED="1714565769748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

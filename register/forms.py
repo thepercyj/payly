@@ -68,10 +68,10 @@ class RegistrationForm(forms.Form):
     firstname = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Eg: John'}), required=True, )
     lastname = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Eg: Wick'}), required=True)
+        attrs={'placeholder': 'Eg: Williams'}), required=True)
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Eg: babayaga'}), required=True, validators=[username_validator])
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Eg: john.wick@gmail.com'}), required=True,
+        attrs={'placeholder': 'Eg: john'}), required=True, validators=[username_validator])
+    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Eg: john.williams@payly.com'}), required=True,
                             validators=[
                                 email_validator, EmailValidator(message='Invalid email address provided')])
     password = forms.CharField(widget=forms.PasswordInput(
@@ -133,7 +133,7 @@ class LoginForm(forms.Form):
     Form for user login.
     """
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Eg: babayaga'}), required=True)
+        attrs={'placeholder': 'Eg: john'}), required=True)
     password = forms.CharField(widget=forms.PasswordInput(
     ), required=True, validators=[password_strength])
 
