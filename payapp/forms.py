@@ -14,6 +14,12 @@ from crispy_forms.helper import FormHelper
 
 
 class EditUserProfileForm(forms.Form):
+    """
+    A form for editing user profile information.
+
+    :ivar current_user: User
+        The current user.
+    """
     firstname = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Eg: John'}))
     lastname = forms.CharField(widget=forms.TextInput(
@@ -61,6 +67,16 @@ def username_validator(username):
 
 
 class RequestUserForm(forms.Form):
+    """
+    A form for requesting user information.
+
+    :ivar identifier: str
+        The identifier for searching users.
+    :ivar amount: decimal.Decimal
+        The amount for the request.
+    :ivar currency: str
+        The currency for the request.
+    """
     identifier = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'username, email, firstname or lastname'}), required=True, validators=[])
     amount = forms.DecimalField(decimal_places=2, max_digits=20, widget=forms.TextInput(
@@ -76,9 +92,18 @@ def EmptyValidator(identifier):
 
 
 class SearchUserForm(forms.Form):
+    """
+    A form for searching users.
+
+    :ivar tag: str
+        The form tag.
+    :ivar identifier: str
+        The identifier for searching users.
+    """
+
     tag = forms.CharField(widget=forms.HiddenInput(attrs={'value': 'search'}), required=True)
     identifier = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Search your recipient by name, email or userid'}), required=True,
+        attrs={'placeholder': 'Search by Name, Email or UserID'}), required=True,
         validators=[EmptyValidator], label=None)
 
     def search(self):
@@ -86,7 +111,7 @@ class SearchUserForm(forms.Form):
         results = search_by_identifier(string)
         if len(results) <= 0:
             self.add_error('identifier',
-                           forms.ValidationError('We couldnot find any user having similar name, email or username'))
+                           forms.ValidationError('Oops !! user having similar name, email or username not found'))
         return results
 
     def __init__(self, *args, **kwargs):
@@ -96,8 +121,17 @@ class SearchUserForm(forms.Form):
 
 
 class SendForm(forms.Form):
+    """
+    A form for sending money.
+
+    :ivar sender: User
+        The sender of the money.
+    :ivar wallet: Wallet
+        The wallet of the sender.
+    """
+
     amount = forms.DecimalField(decimal_places=2, widget=forms.NumberInput(
-        attrs={'placeholder': 'Eg: $200.00',
+        attrs={'placeholder': 'Eg: £100.00',
                'type': 'number'
                }), required=True, validators=[], label=None)
     currency = forms.ChoiceField(choices=Currency.choices, widget=forms.Select(
@@ -107,12 +141,10 @@ class SendForm(forms.Form):
 
     wallet = None
 
-    # sender=None
     def __init__(self, sender, *args, **kwargs):
 
         super(SendForm, self).__init__(*args, **kwargs)
         self.sender = sender
-        # self.fields['sender'].intial=sender
         wallet = wallet_profile_id(self.sender)
         print(f'sender (at constr): {sender}')
         self.fields['currency'].initial = wallet.currency
@@ -138,8 +170,16 @@ class SendForm(forms.Form):
 
 
 class RequestForm(forms.Form):
+    """
+    A form for requesting money.
+
+    :ivar sender: User
+        The sender of the request.
+    :ivar wallet: Wallet
+        The wallet of the sender.
+    """
     amount = forms.DecimalField(decimal_places=2, widget=forms.NumberInput(
-        attrs={'placeholder': 'Eg: $200.00',
+        attrs={'placeholder': 'Eg: £100.00',
                'type': 'number'
                }), required=True, validators=[], label=None)
     currency = forms.ChoiceField(choices=Currency.choices, widget=forms.Select(
@@ -155,26 +195,18 @@ class RequestForm(forms.Form):
         wallet = wallet_profile_id(self.sender)
         self.fields['currency'].initial = wallet.currency
 
-    # def clean(self):
-    #     data= super().clean()
-    #     amount=data.get('amount')
-    #     curr=data.get('currency')
-
-    #     if amount and curr and self.sender:
-    #         try:
-    #             balance_check(self.sender,int(amount),curr)
-    #             return data
-    #         except TransferException as e:
-    #             self.add_error('amount',ValidationError(str(e.message)))
-    #         except Exception as e:
-    #             self.add_error('amount',ValidationError(str(e)))
-    #     else:
-    #         self.add_error('currency',ValidationError('Insufficient Parameters'))
-
 
 class BankAccForm(forms.Form):
+    """
+    A form for adding bank account information.
+
+    :ivar bank: str
+        The name of the bank.
+    :ivar account_no: str
+        The account number.
+    """
     bank = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': 'Name of your Bank'}), required=True, validators=[])
+        attrs={'placeholder': 'Bank Name'}), required=True, validators=[])
     account_no = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Account Number'}), required=True, validators=[])
 

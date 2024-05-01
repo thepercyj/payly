@@ -5,16 +5,95 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b437050-3da6-415b-a13b-201e84ddeb78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/media/profile/Web_Apps_Checklist.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminapp/core/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/make.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/adminapp.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/adminapp_core_data.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/adminapp_core_utils.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/adminapp_decorators.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/adminapp_views.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/conversionapp.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/main.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/main_views.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp_context_processors.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp_core_notifications.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp_forms.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp_models.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp_signals.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/notificationapp_views.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_context_processors.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_core_account_account.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_core_account_wallet.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_core_banking_bank.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_core_banking_search.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_core_banking_transfers.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_core_transactions_transactions.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_forms.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_models.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_signals.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/payapp_views.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/popup.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/popup_popup.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/popup_views.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/register.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/register_forms.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/register_validation.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/register_views.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_apps.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_core_exception.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_core_wallet.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_forms.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_models.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_signals.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/walletapp_views.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/core/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/core/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/core/view_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculatorserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/thrift.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conversionapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/conversionapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conversionapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/conversionapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/context_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/core/notifications.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/core/notifications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notificationapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/notificationapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/context_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/account/account.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/account/account.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/account/wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/account/wallet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/banking/bank.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/banking/bank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/banking/search.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/banking/search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/banking/transfers.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/banking/transfers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/transactions/filters.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminapp/layout/all-transactions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/layout/all-transactions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminapp/layout/all-users.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/layout/all-users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminapp/layout/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/layout/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/add-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/add-admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/layout/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notificationapp/layout/notification-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/layout/notification-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapps.db" beforeDir="false" afterPath="$PROJECT_DIR$/webapps.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popup/popup.py" beforeDir="false" afterPath="$PROJECT_DIR$/popup/popup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/popup/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/core/exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/core/exception.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/core/wallet.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/core/wallet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapps2024/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapps2024/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,12 +140,15 @@
     "Python.calculatorserver (1).executor": "Run",
     "Python.calculatorserver.executor": "Run",
     "Python.calculatorserver .executor": "Run",
+    "Python.script.executor": "Run",
+    "Python.thrift (1).executor": "Run",
+    "Python.thrift.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/University of Sussex/Web Applications and Services/webapps2024/media/profile",
+    "last_opened_file_path": "D:/University of Sussex/Web Applications and Services/webapps2024/docs/source",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,11 +165,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\docs\source" />
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\media\profile" />
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\walletapp\migrations" />
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\payapp" />
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\walletapp" />
-      <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\templates\popup\layout" />
@@ -97,8 +179,8 @@
       <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\notificationapp\core" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.calculatorserver">
-    <configuration name="calculatorserver (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.thrift (1)">
+    <configuration name="script" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Online-Payment-Service" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -107,12 +189,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docs/source" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/calculatorserver.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs/source/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +203,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="calculatorserver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="thrift (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Online-Payment-Service" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,7 +217,53 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\University of Sussex\Web Applications and Services\webapps2024\calculatorserver.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thrift.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="thrift" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Online-Payment-Service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\University of Sussex\Web Applications and Services\webapps2024\thrift.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="thrift" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Online-Payment-Service" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="D:\University of Sussex\Web Applications and Services\webapps2024\thrift.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,8 +274,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.calculatorserver" />
-        <item itemvalue="Python.calculatorserver (1)" />
+        <item itemvalue="Python.thrift (1)" />
+        <item itemvalue="Python.script" />
+        <item itemvalue="Python.thrift" />
+        <item itemvalue="Python.thrift" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +360,8 @@
       <workItem from="1714399859105" duration="6465000" />
       <workItem from="1714407338787" duration="10876000" />
       <workItem from="1714431369307" duration="3532000" />
-      <workItem from="1714476054659" duration="1380000" />
+      <workItem from="1714476054659" duration="1841000" />
+      <workItem from="1714513633128" duration="12912000" />
     </task>
     <servers />
   </component>
@@ -240,23 +371,12 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/payapp/forms.py</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/notificationapp/core/notifications.py</url>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/webapps2024$calculatorserver_.coverage" NAME="calculatorserver  Coverage Results" MODIFIED="1713920978321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/webapps2024$thrift.coverage" NAME="thrift Coverage Results" MODIFIED="1714522837364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/webapps2024$calculatorserver__1_.coverage" NAME="calculatorserver (1) Coverage Results" MODIFIED="1714312132542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/webapps2024$script.coverage" NAME="script Coverage Results" MODIFIED="1714525724221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/docs/source" />
     <SUITE FILE_PATH="coverage/webapps2024$calculatorserver.coverage" NAME="calculatorserver Coverage Results" MODIFIED="1714476944084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/webapps2024$thrift__1_.coverage" NAME="thrift (1) Coverage Results" MODIFIED="1714527503574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -1,24 +1,32 @@
 import os
 from random import choice
-
 from django.contrib.auth.models import User
 from django.core.validators import EmailValidator
 from django import forms
 from django.utils.translation import gettext_lazy as translate
-
-from payapp.models import Currency, UserProfile
+from payapp.models import Currency
 from .validation import user_email_exists, username_exists
 
 
-# function that validates email
 def email_validator(email):
+    """
+    Validates the email address during user registration.
+
+    :param email: The email address to validate.
+    :raises: forms.ValidationError if the email address already exists.
+    """
     if user_email_exists(email=email):
         raise forms.ValidationError('A user with this email id already exists, please use a different email address '
                                     'to sign up.')
 
 
-# function that validates username
 def username_validator(username):
+    """
+    Validates the username during user registration.
+
+    :param username: The username to validate.
+    :raises: forms.ValidationError if the username already exists.
+    """
     if username_exists(username=username):
         raise forms.ValidationError(translate('A user with that username already exists, please use a different '
                                               'username: %('
@@ -27,21 +35,36 @@ def username_validator(username):
         })
 
 
-# function that checks password strength, must not be less than 8 as per standards.
-def password_strength(password):
-    if len(password) < 5:
+def password_strength(password, is_superuser=False):
+    """
+    Validates the password strength during user registration.
+
+    :param password: The password to validate.
+    :param is_superuser: Boolean indicating if the user is a superuser. Default is False.
+    :raises: forms.ValidationError if the password is too short.
+    """
+    if not is_superuser and len(password) < 8:
         raise forms.ValidationError('The provided password is too short, minimum password length is 5. Try again !')
 
 
 def save_profile_picture():
+    """
+    Saves the user's profile picture.
+
+    :return: Path to the saved profile picture.
+    """
     profile_dir = 'media/profile/'
     path = 'profile/'
     profile_pics = os.listdir(profile_dir)
     return os.path.join(path, choice(profile_pics))
 
 
-# Registration form to register new users.
 class RegistrationForm(forms.Form):
+    """
+    Form for user registration.
+
+    :param is_superuser: Boolean indicating if the user is a superuser. Default is False.
+    """
     firstname = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Eg: John'}), required=True, )
     lastname = forms.CharField(widget=forms.TextInput(
@@ -62,19 +85,19 @@ class RegistrationForm(forms.Form):
     def __init__(self, is_superuser: bool = False, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
         self.is_superuser = is_superuser
-        # Fetching currency choices from the Currency model
         self.fields['currency'] = forms.ChoiceField(choices=Currency.choices, widget=forms.Select(), required=True)
 
-    # Adding custom clear function for form validations
-
     def clean(self):
+        """
+        Clean and validate form data.
+
+        :raises: forms.ValidationError if passwords do not match or terms are not accepted.
+        """
         cleaned_data = super().clean()
 
-        # Checks if the password entered by the user twice is same or not.
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
 
-        # print error stating passwords do not match.
         if password != confirm_password:
             self.add_error('confirm_password', 'Passwords do not match, please type it again.')
 
@@ -83,6 +106,12 @@ class RegistrationForm(forms.Form):
                 'terms', 'Please go through our terms and conditions first and accept it. ')
 
     def save(self, is_admin: bool = False):
+        """
+        Saves the user's registration information.
+
+        :param is_admin: Boolean indicating if the user is an admin. Default is False.
+        :return: The created user object.
+        """
         username = self.cleaned_data['username']
         firstname = self.cleaned_data['firstname']
         lastname = self.cleaned_data['lastname']
@@ -100,13 +129,20 @@ class RegistrationForm(forms.Form):
 
 
 class LoginForm(forms.Form):
+    """
+    Form for user login.
+    """
     username = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Eg: babayaga'}), required=True)
     password = forms.CharField(widget=forms.PasswordInput(
     ), required=True, validators=[password_strength])
 
-    # checking enable to verify if the supplied username matches in the database or not.
     def clean(self):
+        """
+        Validates form fields.
+
+        :raises forms.ValidationError: If form validation fails.
+        """
         cleaned_data = super().clean()
         if not username_exists(cleaned_data['username']):
             self.add_error('username', 'The username does not match, please try again.')

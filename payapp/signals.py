@@ -8,17 +8,26 @@ from .models import UserProfile
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """
+    Signal receiver function to create or update a user profile when a User instance is saved.
+
+    :param sender: class
+        The class from which the signal is sent.
+    :param instance: User
+        The instance of the User model that was saved.
+    :param created: bool
+        Indicates whether the User instance was created or updated.
+    :param kwargs: dict
+        Additional keyword arguments passed to the signal.
+    """
     if created:
-        # Create UserProfile for the newly created user
         user_profile = UserProfile.objects.create(user=instance)
         print('UserProfile created.')
 
-        # Select a random profile picture and save it to the user profile
         profile_picture = save_profile_picture()
         user_profile.profile_picture = profile_picture
         user_profile.save()
         print('Random profile picture assigned.')
     else:
-        # If the user already exists, simply save the UserProfile
         instance.userprofile.save()
         print('UserProfile updated.')

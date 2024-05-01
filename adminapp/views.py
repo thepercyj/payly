@@ -1,18 +1,23 @@
 from django.shortcuts import render
-
-from notificationapp.models import Notification
 from payapp.core.transactions.transactions import get_trans_id
-from payapp.models import UserProfile
 from .core.data import get_no_of_transactions, get_no_of_users, get_all_transactions, get_all_users
 from .decorators import admin_required
 from popup.views import no_view
 from register.forms import RegistrationForm
 from popup.popup import PopupHttpResponse
-from .core.view_utils import redirect_if_not_super_user
 
 
 @admin_required(login_url='login')
 def index(request):
+    """
+    Renders the dashboard page for the admin.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered dashboard page.
+    """
     context = {
         'users': get_no_of_users(),
         'success_transactions': get_no_of_transactions(True),
@@ -23,11 +28,20 @@ def index(request):
 
 @admin_required(login_url='login')
 def all_users(request):
+    """
+    Renders the page displaying a list of all users for the admin.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying the list of users.
+    """
     # redirect_if_not_super_user(request)
     users = get_all_users(request.user) or []
     if users is None or len(users) == 0:
         return no_view(request, 'No users Found',
-                          'We didnot find any users yet. Whenever a new user registers, this page will show them.')
+                       'We didnot find any users yet. Whenever a new user registers, this page will show them.')
     context = {
         'users': users,
     }
@@ -36,6 +50,15 @@ def all_users(request):
 
 @admin_required(login_url='login')
 def all_user_trans_list(request):
+    """
+    Renders the page displaying a list of all users for transaction records.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying the list of users for transaction records.
+    """
     # redirect_if_not_super_user(request)
     users = get_all_users(request.user) or []
     if users is None or len(users) == 0:
@@ -49,6 +72,15 @@ def all_user_trans_list(request):
 
 @admin_required(login_url='login')
 def all_transactions(request):
+    """
+    Renders the page displaying a list of all transactions or transactions for a specific user.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying the list of transactions.
+    """
     # redirect_if_not_super_user(request)
     limit = int(request.GET.get('limit')
                 ) if request.GET.get('limit') else 100
@@ -66,10 +98,10 @@ def all_transactions(request):
 
     if transactions is None or len(transactions) == 0:
         return no_view(request, 'No Transactions Found',
-                          'We didnot find any transactions yet. Whenever a user completes a transaction, this page will show them.')
+                       'We didnot find any transactions yet. Whenever a user completes a transaction, this page will show them.')
 
     for tr in transactions:
-        print("THis is sender & request",tr.sender.id, request.user.id)
+        print("THis is sender & request", tr.sender.id, request.user.id)
         if tr.sender.id == user:
             tr.type = 'DEBIT'
         else:
@@ -84,18 +116,45 @@ def all_transactions(request):
 
 @admin_required(login_url='login')
 def index_transactions(request):
+    """
+    Renders the page displaying all transactions.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying all transactions.
+    """
     # redirect_if_not_super_user(request)
     return render(request, 'adminapp/layout/all-transactions.html')
 
 
 @admin_required(login_url='login')
 def index_users(request):
+    """
+    Renders the page displaying all users.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying all users.
+    """
     # redirect_if_not_super_user(request)
     return render(request, 'adminapp/layout/all-users.html')
 
 
 @admin_required(login_url='login')
 def add_admin(request):
+    """
+    Renders the page to add a new admin user.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page to add a new admin user.
+    """
     # redirect_if_not_super_user(request)
     form = RegistrationForm(is_superuser=True)
     if request.method == 'POST':

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'conversionapp',
     'adminapp',
     'django_extensions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

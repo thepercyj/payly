@@ -1,5 +1,4 @@
 import json
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import Http404, HttpResponse
@@ -20,11 +19,23 @@ from payapp.core.transactions.transactions import get_all_trans, get_trans_id, g
 ############################### ACCOUNT VIEWS START ###############################
 @login_required(login_url='login')
 def account(request):
+    """
+    Renders the account index page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     return render(request, 'payapp/account/layout/index.html')
 
 
 @login_required(login_url='login')
 def edit_profile(request):
+    """
+    Allows the user to edit their profile information.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     form = EditUserProfileForm(request.user)
 
     if request.method == 'POST':
@@ -42,6 +53,12 @@ def edit_profile(request):
 
 @login_required(login_url='login')
 def change_password(request):
+    """
+    Allows the user to change their password.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -61,11 +78,23 @@ def change_password(request):
 ############################### BANKING VIEWS START ###############################
 @login_required(login_url='login')
 def banking(request):
+    """
+    Renders the banking index page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     return render(request, 'payapp/banking/layout/index.html')
 
 
 @login_required(login_url='login')
 def create_bank_acc(request):
+    """
+    Allows the user to create a new bank account.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     form = BankAccForm()
 
     if request.method == 'POST':
@@ -79,6 +108,12 @@ def create_bank_acc(request):
 
 @login_required(login_url='login')
 def list_bank_acc(request):
+    """
+    Lists the bank accounts associated with the user.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if not request.method == 'GET':
         return PopupHttpResponse(success=False, title='Error Occurred', message='Not Allowed')
 
@@ -98,6 +133,12 @@ def list_bank_acc(request):
 
 @login_required(login_url='login')
 def remove_bank_acc(request):
+    """
+    Allows the user to remove a bank account.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'POST':
         id = request.POST.get('id')
         delete_bank_acc(id)
@@ -112,6 +153,12 @@ def remove_bank_acc(request):
 
 @login_required(login_url='login')
 def transfer_requests(request):
+    """
+    Renders the transfer requests page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         return render(request, 'payapp/banking/layout/tr-requests.html')
     raise Http404()
@@ -119,6 +166,12 @@ def transfer_requests(request):
 
 @login_required(login_url='login')
 def list_transfer_requests(request):
+    """
+    Lists the transfer requests for the current user.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         group = request.GET.get('group') if request.GET.get(
             'group') is not None else 'all'
@@ -135,6 +188,12 @@ def list_transfer_requests(request):
 
 @login_required(login_url='login')
 def confirm_transfer_withdrawal(request):
+    """
+    Renders the confirmation page for withdrawal of a transfer request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         context = {
             'rid': request.GET.get('rid')
@@ -145,6 +204,12 @@ def confirm_transfer_withdrawal(request):
 
 @login_required(login_url='login')
 def confirm_transfer_approval(request):
+    """
+    Renders the confirmation page for approval of a transfer request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         context = {
             'tr': transfer_req_id(request.GET.get('rid'))
@@ -155,6 +220,12 @@ def confirm_transfer_approval(request):
 
 @login_required(login_url='login')
 def confirm_transfer_denial(request):
+    """
+    Renders the confirmation page for denial of a transfer request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         context = {
             'tr': transfer_req_id(request.GET.get('rid'))
@@ -165,6 +236,12 @@ def confirm_transfer_denial(request):
 
 @login_required(login_url='login')
 def request_withdrawal(request):
+    """
+    Processes the withdrawal of a transfer request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         rid = request.GET.get('rid')
         tr_rq = transfer_req_id(rid)
@@ -177,6 +254,12 @@ def request_withdrawal(request):
 
 @login_required(login_url='login')
 def approve_transfer(request):
+    """
+    Approves a transfer request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         try:
             rid = request.GET.get('rid')
@@ -197,6 +280,12 @@ def approve_transfer(request):
 
 @login_required(login_url='login')
 def deny_transfer(request):
+    """
+    Denies a transfer request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         try:
             rid = request.GET.get('rid')
@@ -217,6 +306,12 @@ def deny_transfer(request):
 
 @login_required(login_url='login')
 def send_money(request):
+    """
+    Renders the send money page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     form = SearchUserForm()
     results = []
     if request.method == 'GET':
@@ -234,6 +329,12 @@ def send_money(request):
 
 @login_required(login_url='login')
 def send_money_details(request):
+    """
+    Renders the send money details page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     print(f'user: {request.user}')
     if request.method == 'POST' and 'confirm' not in request.POST:
         receiver = search_by_id(request.POST.get('receiver'))
@@ -292,6 +393,12 @@ def send_money_details(request):
 
 @login_required(login_url='login')
 def detail_type(request):
+    """
+    Determines the type of detail view to render based on the 'type' parameter in the request.GET.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if 'type' in request.GET:
         if request.GET.get('type') == 'request':
             return request_money_details(request)
@@ -302,6 +409,12 @@ def detail_type(request):
 
 @login_required(login_url='login')
 def request_money(request):
+    """
+    Renders the request money page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     form = SearchUserForm()
     results = []
     if request.method == 'GET':
@@ -319,6 +432,12 @@ def request_money(request):
 
 @login_required(login_url='login')
 def request_money_details(request):
+    """
+    Renders the request money details page and processes the request.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'POST' and 'confirm' not in request.POST:
         receiver = search_by_id(request.POST.get('receiver'))
         form = RequestForm(request.user.id, request.POST)
@@ -378,6 +497,12 @@ def request_money_details(request):
 
 @login_required(login_url='login')
 def transaction(request):
+    """
+    Renders the transaction page.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         return render(request, 'payapp/transaction/layout/list.html')
     raise Http404()
@@ -385,6 +510,12 @@ def transaction(request):
 
 @login_required(login_url='login')
 def transaction_list(request):
+    """
+    Renders the transaction list page and fetches transactions based on user ID, limit, sort, and sortby parameters.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         limit = int(request.GET.get('limit')
                     ) if request.GET.get('limit') else 100
@@ -422,6 +553,12 @@ def transaction_list(request):
 
 @login_required(login_url='login')
 def transaction_detail(request):
+    """
+    Renders the transaction detail page based on the transaction ID.
+
+    :param request: HttpRequest object.
+    :return: HttpResponse object.
+    """
     if request.method == 'GET':
         tid = request.GET.get('tid')
         transaction = get_transaction_id(tid)

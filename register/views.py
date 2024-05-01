@@ -6,9 +6,13 @@ from django.contrib.messages import error, get_messages
 from django.contrib.auth.models import User
 
 
-# Create your views here.
-# View logic for register users.
 def register_user(request):
+    """
+    View function for user registration.
+
+    :param request: The HTTP request.
+    :return: Redirects to login page if registration is successful, otherwise renders the registration form.
+    """
     add_superuser()
     if request.method == 'POST':
         form = RegistrationForm(False, request.POST)
@@ -21,8 +25,13 @@ def register_user(request):
         return render(request, 'register/register.html', {'title': 'Create an Account', 'form': RegistrationForm()})
 
 
-# View logic for logging in users.
 def login(request):
+    """
+    View function for user login.
+
+    :param request: The HTTP request.
+    :return: Redirects to home page if login is successful, otherwise renders the login form.
+    """
     add_superuser()
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -51,8 +60,10 @@ def login(request):
     return render(request, 'register/login.html', context)
 
 
-# Adding a superuser account to manage the project.
 def add_superuser():
+    """
+    Adds a superuser with default credentials if not already present in the database.
+    """
     if not User.objects.filter(username='admin1').exists():
         User.objects.create_superuser(username='admin1', password='admin1')
 

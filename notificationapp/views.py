@@ -1,14 +1,21 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
-
-from payapp.models import UserProfile
 from .core.notifications import get_user_notifications
-from .models import Notification
 
 
 @login_required(login_url='login')
 def notification(request):
+    """
+    Renders the page displaying detailed notifications for the authenticated user.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying detailed notifications.
+    """
+
     user = request.user
     notifications = get_user_notifications(user.id, limit=10)
     context = {
@@ -19,6 +26,16 @@ def notification(request):
 
 @login_required(login_url='login')
 def get_notifications(request):
+    """
+    Renders the page displaying a list of notifications for the authenticated user.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: HttpResponse
+        The rendered page displaying a list of notifications.
+    """
+
     user = request.user
     notifications = get_user_notifications(user.id, limit=3)
     context = {
@@ -29,6 +46,16 @@ def get_notifications(request):
 
 @login_required(login_url='login')
 def notification_seen(request):
+    """
+    Marks all notifications as seen for the authenticated user.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: JsonResponse
+        A JSON response indicating that the notifications have been marked as seen.
+    """
+
     user = request.user
     notifications = get_user_notifications(user.id, limit=5)
     for notification in notifications:

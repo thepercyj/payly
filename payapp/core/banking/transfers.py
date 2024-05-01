@@ -1,7 +1,9 @@
+import decimal
+import thriftpy2
+from thriftpy2.rpc import make_client
+from thriftpy2.thrift import TException
 from datetime import datetime
-
 from django.http import HttpResponse
-
 from walletapp.models import Wallet
 from walletapp.core.wallet import add_money, check_balance, deduct_money
 from payapp.models import TransactionStatus, TransferRequest
@@ -9,10 +11,6 @@ from django.contrib.auth.models import User
 from payapp.core.transactions.transactions import create_transaction, generate_tid
 from django.db.models import Q
 from notificationapp.core.notifications import notify, NotificationType
-import decimal
-import thriftpy2
-from thriftpy2.rpc import make_client
-from thriftpy2.thrift import TException
 
 timestamp_thrift = thriftpy2.load(
     'timestamp.thrift', module_name='timestamp_thrift')
@@ -20,6 +18,20 @@ Timestamp = timestamp_thrift.TimestampService
 
 
 def transfer_money(sender_id, receiver_id, amount, currency):
+    """
+    Transfers money from one user to another.
+
+    :param sender_id: int
+        The ID of the user sending the money.
+    :param receiver_id: int
+        The ID of the user receiving the money.
+    :param amount: decimal.Decimal or str
+        The amount of money to transfer.
+    :param currency: str
+        The currency of the transfer.
+    :return: bool
+        Returns True if the transfer is successful.
+    """
     if not type(amount) == 'Decimal':
         amount = decimal.Decimal(amount)
     check_balance(sender_id, amount, currency)
@@ -28,24 +40,37 @@ def transfer_money(sender_id, receiver_id, amount, currency):
 
 
 def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool = True):
+    """
+    Transfers money from one user to another, given their IDs.
+
+    :param sender_id: int
+        The ID of the user sending the money.
+    :param receiver_id: int
+        The ID of the user receiving the money.
+    :param amount: decimal.Decimal or str
+        The amount of money to transfer.
+    :param currency: str
+        The currency of the transfer.
+    :param notified: bool, optional
+        Indicates whether to notify users about the transfer (default is True).
+    :return: bool
+        Returns True if the transfer is successful.
+    """
+
     sender = User.objects.get(id=sender_id)
     receiver = User.objects.get(id=receiver_id)
 
-    # deduct money from sender wallet
+
     sender_wallet = Wallet.objects.get(user_id=sender.id)
     sender_balance = deduct_money(sender_wallet, amount, currency)
 
-    # add money to recipient wallet
     receiver_wallet = Wallet.objects.get(user_id=receiver.id)
     receiver_balance = add_money(receiver_wallet, amount, currency)
 
     tid = generate_tid()
 
-    # create sender debit transaction
-    create_transaction(tid, sender, receiver, TransactionStatus.SUCCESS, amount, currency, sender_balance)
 
-    # # create recipient credit transaction
-    # create_transaction(tid,recipient,sender,recipient,TransactionType.CREDIT,TransactionStatus.SUCCESS,amount,currency,recipient_balance)
+    create_transaction(tid, sender, receiver, TransactionStatus.SUCCESS, amount, currency, sender_balance)
 
     if notified:
         notify(sender_id, 'Money Transferred',
@@ -58,8 +83,21 @@ def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool =
 
 
 def add_transfer_req(sender_id: int, receiver_id: int, amount, currency):
+    """
+    Adds a transfer request for money from one user to another.
+
+    :param sender_id: int
+        The ID of the user sending the transfer request.
+    :param receiver_id: int
+        The ID of the user receiving the transfer request.
+    :param amount: decimal.Decimal or str
+        The amount of money requested.
+    :param currency: str
+        The currency of the transfer request.
+    """
+
     try:
-        client = make_client(Timestamp, '127.0.0.1', 9090)
+        client = make_client(Timestamp, '127.0.0.1', 10000)
         timestamp = datetime.fromtimestamp(int(str(client.getCurrentTimestamp())))
         rid = generate_tid()
         sender = User.objects.get(id=sender_id)
@@ -86,6 +124,15 @@ def add_transfer_req(sender_id: int, receiver_id: int, amount, currency):
 
 
 def get_transfer_req_id_qs(user_id: int) -> list:
+    """
+    Retrieves a list of transfer requests for a user.
+
+    :param user_id: int
+        The ID of the user.
+    :return: list
+        A list of TransferRequest objects.
+    """
+
     return list(get_transfer_req_id(user_id))
 
 
@@ -107,6 +154,15 @@ def transfer_req_id(rid: int):
 
 
 def withdraw_trans_req(rid: int):
+    """
+    Withdraws a transfer request.
+
+    :param rid: int
+        The ID of the transfer request to withdraw.
+    :return: bool
+        Returns True if the withdrawal is successful.
+    """
+
     request = transfer_req_id(rid)
     request.delete()
 
@@ -114,6 +170,14 @@ def withdraw_trans_req(rid: int):
 
 
 def approve_trans_req(rid: int):
+    """
+    Approves a transfer request and transfers the money.
+
+    :param rid: int
+        The ID of the transfer request to approve.
+    :return: bool
+        Returns True if the approval and transfer are successful.
+    """
     request = transfer_req_id(rid)
     transfer_money_id(sender_id=request.receiver.id, receiver_id=request.sender.id, amount=request.amount,
                       currency=request.currency)
@@ -122,6 +186,14 @@ def approve_trans_req(rid: int):
 
 
 def deny_trans_req(rid: int):
+    """
+    Denies a transfer request.
+
+    :param rid: int
+        The ID of the transfer request to deny.
+    :return: bool
+        Returns True if the denial is successful.
+    """
     request = transfer_req_id(rid)
     request.delete()
     return True

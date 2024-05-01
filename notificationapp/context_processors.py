@@ -1,11 +1,16 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-
 from notificationapp.models import Notification
 
 
 def get_notifications(request):
+    """
+    Retrieves the count of unread notifications for the authenticated user.
+
+    :param request: HttpRequest
+        The request object containing information about the current HTTP request.
+    :type request: HttpRequest
+    :return: dict
+        A dictionary containing the count of unread notifications.
+    """
     notification_count = None
     if request.user.is_authenticated:
         user = request.user
