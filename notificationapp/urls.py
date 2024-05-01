@@ -7,6 +7,6 @@ urlpatterns = [
 ]
 
 htmxpatterns = [
-    path('htmx/get-notification', views.get_notifications, name='get-notifications')
+    path('modal/get-notification', views.get_notifications, name='get-notifications')
 ]
 urlpatterns += htmxpatterns

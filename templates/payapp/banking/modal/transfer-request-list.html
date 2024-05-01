@@ -10,7 +10,9 @@
 <div class="transaction-list">
     <div class="transaction-item px-4 py-3">
         <div class="row align-items-center flex-row">
-            <div class="col col-sm-2 text-center"><span class="d-block text-4"><img src="{{transfer_requests.receiver.profile.profile_pic.url}}" class="avatar avatar-lg" /></span> </div>
+            {% with user_profile=transfer_requests.receiver.userprofile %}
+            <div class="col col-sm-2 text-center"><span class="d-block text-4"><img src="{{user_profile.profile_picture.url}}" class="avatar avatar-lg" /></span> </div>
+            {% endwith %}
             <div class="col col-sm-5"> <span class="d-block text-4">You have requested money from {{transfer_requests.receiver.first_name}} {{transfer_requests.receiver.last_name}}</span> <span class="text-muted">on {{transfer_requests.datetime}}</span> </div>
             <div class="col-auto col-sm-2 d-none d-sm-block text-center"> <span class="d-sm-block text-3">{{transfer_requests.amount}} </span> <span class="text-2 text-uppercase">{{transfer_requests.currency}}</span> </div>
             <div class="col text-center" hx-get="{% url 'request-withdrawal' %}?rid={{transfer_requests.id}}" hx-trigger="click" hx-target="#dialog"><button class="btn btn-outline-danger btn-sm" ><i class="fa-solid fas fa-trash mr-2 fa-sm"></i></button></div>
@@ -29,7 +31,9 @@
 <div class="transaction-list">
     <div class="transaction-item px-4 py-3">
         <div class="row align-items-center flex-row">
-            <div class="col col-sm-2 text-center"><span class="d-block text-4"><img src="{{transfer_requests.sender.profile.profile_pic.url}}" class="avatar avatar-lg" /></span> </div>
+            {% with user_profile=transfer_requests.sender.userprofile %}
+            <div class="col col-sm-2 text-center"><span class="d-block text-4"><img src="{{user_profile.profile_picture.url}}" class="avatar avatar-lg" /></span> </div>
+            {% endwith %}
             <div class="col col-sm-5"> <span class="d-block text-4">{{transfer_requests.sender.first_name}} {{transfer_requests.sender.last_name}} has requested money from you </span> <span class="text-muted">on {{transfer_requests.datetime}}</span> </div>
             <div class="col-auto col-sm-2 d-none d-sm-block text-center"> <span class="d-sm-block text-3">{{transfer_requests.amount}} </span> <span class="text-2 text-uppercase">{{transfer_requests.currency}}</span> </div>
             <div class="col text-center" ><button class="btn btn-outline-success btn-sm" hx-get="{% url 'approve-transfer' %}?rid={{transfer_requests.id}}" hx-target="#dialog"><i class="fa-solid fas fa-check mr-2 fa-sm"></i></button>&nbsp;&nbsp;

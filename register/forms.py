@@ -1,10 +1,12 @@
 import os
+from decimal import Decimal
 from random import choice
 from django.contrib.auth.models import User
 from django.core.validators import EmailValidator
 from django import forms
 from django.utils.translation import gettext_lazy as translate
 from payapp.models import Currency
+from walletapp.core.wallet import convert
 from .validation import user_email_exists, username_exists
 
 
@@ -35,7 +37,7 @@ def username_validator(username):
         })
 
 
-def password_strength(password, is_superuser=False):
+def password_strength(password):
     """
     Validates the password strength during user registration.
 
@@ -43,8 +45,8 @@ def password_strength(password, is_superuser=False):
     :param is_superuser: Boolean indicating if the user is a superuser. Default is False.
     :raises: forms.ValidationError if the password is too short.
     """
-    if not is_superuser and len(password) < 8:
-        raise forms.ValidationError('The provided password is too short, minimum password length is 5. Try again !')
+    if len(password) < 8:
+        raise forms.ValidationError('The provided password is incorrect, Try again !')
 
 
 def save_profile_picture():
@@ -123,6 +125,11 @@ class RegistrationForm(forms.Form):
         user.first_name = firstname
         user.last_name = lastname
         user.wallet.currency = currency
+        initial_amount = 1000
+        from_currency = Currency.GBP
+        to_currency = currency
+        converted_amount = convert(initial_amount, from_currency, to_currency)
+        user.wallet.balance = converted_amount
         user.save()
 
         return user
@@ -135,7 +142,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': 'Eg: john'}), required=True)
     password = forms.CharField(widget=forms.PasswordInput(
-    ), required=True, validators=[password_strength])
+    ), required=True)
 
     def clean(self):
         """

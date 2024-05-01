@@ -1,5 +1,6 @@
 import decimal
 import thriftpy2
+from django.db import transaction
 from thriftpy2.rpc import make_client
 from thriftpy2.thrift import TException
 from datetime import datetime
@@ -39,6 +40,7 @@ def transfer_money(sender_id, receiver_id, amount, currency):
     return transfer_money_id(sender_id, receiver_id, amount, currency)
 
 
+@transaction.atomic
 def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool = True):
     """
     Transfers money from one user to another, given their IDs.
@@ -60,7 +62,6 @@ def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool =
     sender = User.objects.get(id=sender_id)
     receiver = User.objects.get(id=receiver_id)
 
-
     sender_wallet = Wallet.objects.get(user_id=sender.id)
     sender_balance = deduct_money(sender_wallet, amount, currency)
 
@@ -68,7 +69,6 @@ def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool =
     receiver_balance = add_money(receiver_wallet, amount, currency)
 
     tid = generate_tid()
-
 
     create_transaction(tid, sender, receiver, TransactionStatus.SUCCESS, amount, currency, sender_balance)
 
@@ -82,6 +82,7 @@ def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool =
     return True
 
 
+@transaction.atomic
 def add_transfer_req(sender_id: int, receiver_id: int, amount, currency):
     """
     Adds a transfer request for money from one user to another.

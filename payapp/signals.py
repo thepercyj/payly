@@ -22,12 +22,9 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     if created:
         user_profile = UserProfile.objects.create(user=instance)
-        print('UserProfile created.')
 
         profile_picture = save_profile_picture()
         user_profile.profile_picture = profile_picture
         user_profile.save()
-        print('Random profile picture assigned.')
     else:
         instance.userprofile.save()
-        print('UserProfile updated.')

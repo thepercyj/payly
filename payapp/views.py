@@ -181,7 +181,6 @@ def list_transfer_requests(request):
             'group': group,
             'count': len(results)
         }
-        print(len(results))
         return render(request, 'payapp/banking/modal/list-transfer-requests.html', context)
     return HttpResponse('No content')
 
@@ -326,7 +325,6 @@ def send_money(request):
     else:
         raise Http404()
 
-
 @login_required(login_url='login')
 def send_money_details(request):
     """
@@ -335,7 +333,6 @@ def send_money_details(request):
     :param request: HttpRequest object.
     :return: HttpResponse object.
     """
-    print(f'user: {request.user}')
     if request.method == 'POST' and 'confirm' not in request.POST:
         receiver = search_by_id(request.POST.get('receiver'))
         form = SendForm(request.user.id, request.POST)

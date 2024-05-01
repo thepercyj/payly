@@ -101,7 +101,6 @@ def all_transactions(request):
                        'We didnot find any transactions yet. Whenever a user completes a transaction, this page will show them.')
 
     for tr in transactions:
-        print("THis is sender & request", tr.sender.id, request.user.id)
         if tr.sender.id == user:
             tr.type = 'DEBIT'
         else:

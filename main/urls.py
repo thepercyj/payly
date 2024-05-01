@@ -7,8 +7,8 @@ urlpatterns = [
 ]
 
 htmxpatterns = [
-    path('htmx/alert', views.alert, name='alert'),
-    path('htmx/recent-transfers/', views.recent_transfers, name='recent-transfers'),
+    path('modal/alert', views.alert, name='alert'),
+    path('modal/recent-transfers/', views.recent_transfers, name='recent-transfers'),
 ]
 
 urlpatterns += htmxpatterns

@@ -13,7 +13,7 @@
         {% if t.type == 'DEBIT' %}
         <div class="transaction-item px-4 py-3">
             <div class="row align-items-center flex-row">
-                <div class="col "> <span class="d-block text-4 fw-300">{{t.datetime|date:"d"}}</span> <span class="d-block text-1 fw-300 text-uppercase">{{t.datetime}}</span> </div>
+                <div class="col "> <span class="d-block text-4 fw-300">{{t.datetime|date:"d M Y"}}</span> <span class="d-block text-1 fw-300 text-uppercase">{{t.datetime|time}}</span> </div>
                 <div class="col "> <span class="d-block text-4">{{t.sender.first_name}}</span> <span class="text-muted">send to {{t.receiver.first_name}}</span> </div>
                 <div class="col "> <span class="text-warning"><i class="fas fa-caret-down text-danger">{{t.type}}</i></span> </div>
                 <div class="col "> <span class="d-sm-block text-3">{{t.amount}}</span> <span class="text-2 text-uppercase">{{t.currency}}</span> </div>

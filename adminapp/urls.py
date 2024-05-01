@@ -8,11 +8,11 @@ urlpatterns = [
 ]
 
 htmxpatterns = [
-    path('htmx/get-all-users/', views.all_users, name='get-all-users'),
-    path('htmx/get-all-transactions/',
+    path('modal/get-all-users/', views.all_users, name='get-all-users'),
+    path('modal/get-all-transactions/',
          views.all_transactions, name='get-all-transactions'),
-    path('htmx/all-user-trans-list/', views.all_user_trans_list, name='all-user-trans-list'),
-    path('htmx/add-admin/', views.add_admin, name='add-admin'),
+    path('modal/all-user-trans-list/', views.all_user_trans_list, name='all-user-trans-list'),
+    path('modal/add-admin/', views.add_admin, name='add-admin'),
 ]
 
 urlpatterns += htmxpatterns
