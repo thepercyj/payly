@@ -1,4 +1,4 @@
-# Payly - Online-Payment-Service
+# Payly
 Payly - An Online Payment Service built using Django
 
 ## Description
