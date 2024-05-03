@@ -45,7 +45,7 @@ def all_users(request):
     context = {
         'users': users,
     }
-    return render(request, 'adminapp/modal/users_list.html', context)
+    return render(request, 'adminapp/modal/users-list.html', context)
 
 
 @admin_required(login_url='login')
@@ -67,7 +67,7 @@ def all_user_trans_list(request):
     context = {
         'users': users,
     }
-    return render(request, 'adminapp/modal/transaction_users_list.html', context)
+    return render(request, 'adminapp/modal/transaction-users-list.html', context)
 
 
 @admin_required(login_url='login')
@@ -110,7 +110,7 @@ def all_transactions(request):
         'transactions': transactions,
         'type': type,
     }
-    return render(request, 'adminapp/modal/transactions_list.html', context)
+    return render(request, 'adminapp/modal/transactions-list.html', context)
 
 
 @admin_required(login_url='login')

@@ -19,16 +19,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-&dujvonru9*mw5x6t3$p5-s46xe!)iunddqdxxb!h)+k0ph^(+'
-try:
-    SECRET_KEY = os.environ["SECRET_KEY"]
-except KeyError as e:
-    raise RuntimeError("Could not find a SECRET_KEY in environment") from e
+# SECRET_KEY = 'django-insecure-&dujvonru9*mw5x6t3$p5-s46xe!)iunddqdxxb!h)+k0ph^(+'
+
+SECRET_KEY_FILE = os.path.join(BASE_DIR, 'webapps2024/.DJANGO_SECRET_KEY')
+
+with open(SECRET_KEY_FILE) as f:
+    SECRET_KEY = f.read().strip()
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','ec2-34-235-38-137.compute-1.amazonaws.com', '34.235.38.137']
+ALLOWED_HOSTS = ['127.0.0.1', 'ec2-34-235-38-137.compute-1.amazonaws.com', '34.235.38.137']
 
 # Application definition
 
@@ -61,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+X_FRAME_OPTIONS = 'DENY'
 
 ROOT_URLCONF = 'webapps2024.urls'
 
@@ -128,6 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = '/var/www/webapps2024/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

@@ -53,13 +53,13 @@ def get_add_money(request):
             context = {
                 'form': form
             }
-            return render(request, 'walletapp/modal/add_money_amount_form.html', context)
+            return render(request, 'walletapp/modal/add-money.html', context)
 
     if 'id' in request.GET:
         context = {
             'form': AddMoneyForm()
         }
-        return render(request, 'walletapp/modal/add_money_amount_form.html', context)
+        return render(request, 'walletapp/modal/add-money.html', context)
 
     accounts = get_user_bank_acc(request.user.id)
 
@@ -68,7 +68,7 @@ def get_add_money(request):
     context = {
         'accounts': accounts
     }
-    return render(request, 'walletapp/modal/add_money_bank_select.html', context)
+    return render(request, 'walletapp/modal/add-bank.html', context)
 
 
 @login_required(login_url='login')
@@ -96,7 +96,7 @@ def get_change_currency(request):
         return PopupHttpResponse(False, 'Error Occured',
                                  'Some error occured while changing your default currency. Please try again later')
 
-    return render(request, 'walletapp/modal/change_currency.html', {'form': form})
+    return render(request, 'walletapp/modal/currency-change.html', {'form': form})
 
 
 @login_required(login_url='login')
@@ -111,7 +111,7 @@ def get_balance(request):
         HttpResponse: The HTTP response containing the wallet balance.
 
     """
-    return render(request, 'walletapp/modal/wallet_balance_card.html')
+    return render(request, 'walletapp/modal/wallet-view.html')
 
 
 @login_required(login_url='login')
@@ -126,4 +126,4 @@ def get_currency(request):
         HttpResponse: The HTTP response containing the wallet currency.
 
     """
-    return render(request, 'walletapp/modal/currency_card.html')
+    return render(request, 'walletapp/modal/currency-view.html')

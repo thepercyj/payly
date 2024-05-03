@@ -78,25 +78,6 @@ def unique_trans_id(user_id: int):
 
 def create_transaction(transaction_id: str, sender: User, receiver: User, status: TransactionStatus, amount, currency,
                        balance):
-    """
-    Creates a transaction and saves it to the database.
-
-    :param transaction_id: str
-        The ID of the transaction.
-    :param sender: User
-        The sender of the transaction.
-    :param receiver: User
-        The receiver of the transaction.
-    :param status: TransactionStatus
-        The status of the transaction.
-    :param amount: decimal.Decimal or str
-        The amount of money involved in the transaction.
-    :param currency: str
-        The currency of the transaction.
-    :param balance: decimal.Decimal or str
-        The balance after the transaction.
-    """
-
     try:
         client = make_client(Timestamp, '127.0.0.1', 10000)
         timestamp = datetime.fromtimestamp(int(str(client.getCurrentTimestamp())))

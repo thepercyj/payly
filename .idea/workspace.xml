@@ -5,7 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bdbd9db-d45f-4230-9f66-16e286d74fb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/banking/transfers.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/banking/transfers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/core/transactions/transactions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap-select.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/bootstrap-select.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/daterangepicker.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/daterangepicker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fa-brands-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/fa-brands-400.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fa-regular-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/fa-regular-400.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fa-solid-900.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/css/fa-solid-900.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/affiliate-marketing.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/freelancer.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/main-image-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/main-image-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/main-image-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/online-sellers.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/main/online-shopping.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/profile-pic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/bootstrap-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/daterangepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/daterangepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/moment.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/moment.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/popup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/switcher.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/switcher.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/vendor/js/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/transaction_users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/transaction-users-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/transactions_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/transactions-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adminapp/modal/users_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminapp/modal/users-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/layout/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/layout/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/modal/recent-transfer-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/modal/recent-transfer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main/modal/recent-transfer-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/modal/recent-transfer-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/notificationapp/layout/notification-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/layout/notification-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/notificationapp/modal/notification-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notificationapp/modal/notification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payapp/transaction/modal/filter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/add_money_amount_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/add-money.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/add_money_bank_select.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/add-bank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/change_currency.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/currency-change.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/currency_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/currency-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/walletapp/modal/wallet_balance_card.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/walletapp/modal/wallet-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/walletapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/walletapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapps.db" beforeDir="false" afterPath="$PROJECT_DIR$/webapps.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapps2024/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapps2024/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,26 +79,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/University of Sussex/Web Applications and Services/webapps2024&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.35402298&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.thrift.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/amany/Downloads/webapps2024",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.35402298",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\static\vendor\css" />
+      <recent name="D:\University of Sussex\Web Applications and Services\webapps2024\static\vendor\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.thrift">
+    <configuration name="thrift" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="webapps2024" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thrift.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="webapps2024" type="Python.DjangoServer" factoryName="Django server">
       <module name="webapps2024" />
       <option name="ENV_FILES" value="" />
@@ -73,6 +155,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.thrift" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,11 +175,18 @@
       <workItem from="1714608233152" duration="276000" />
       <workItem from="1714608523656" duration="436000" />
       <workItem from="1714609186228" duration="396000" />
-      <workItem from="1714610540244" duration="57000" />
+      <workItem from="1714610540244" duration="1445000" />
+      <workItem from="1714652907399" duration="903000" />
+      <workItem from="1714653874852" duration="2150000" />
+      <workItem from="1714660389766" duration="3450000" />
+      <workItem from="1714681716509" duration="9232000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/webapps2024$thrift.coverage" NAME="thrift Coverage Results" MODIFIED="1714690452229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

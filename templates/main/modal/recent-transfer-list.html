@@ -6,7 +6,7 @@
 <div class="carousel-inner">
     {% for trans in r_transfers %}
     <div class="carousel-item {% if forloop.first %} active {% endif %}">
-        {% include './recent-transfer-item.html' with receiver=trans %}
+        {% include './recent-transfer.html' with receiver=trans %}
     </div>
     {% endfor %}
 </div>

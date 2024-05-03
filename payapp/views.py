@@ -327,12 +327,6 @@ def send_money(request):
 
 @login_required(login_url='login')
 def send_money_details(request):
-    """
-    Renders the send money details page.
-
-    :param request: HttpRequest object.
-    :return: HttpResponse object.
-    """
     if request.method == 'POST' and 'confirm' not in request.POST:
         receiver = search_by_id(request.POST.get('receiver'))
         form = SendForm(request.user.id, request.POST)
@@ -352,7 +346,6 @@ def send_money_details(request):
         return render(request, 'payapp/banking/modal/send-money-details.html', context)
 
     elif request.method == 'POST' and 'confirm' in request.POST:
-
         try:
             sender_id = request.POST.get('sender')
             receiver_id = request.POST.get('receiver')
@@ -369,7 +362,6 @@ def send_money_details(request):
                     }
                 })
             })
-
         except TransferException as te:
             context = {
                 'message': te.message

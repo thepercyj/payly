@@ -76,8 +76,8 @@ def transfer_money_id(sender_id, receiver_id, amount, currency, notified: bool =
         notify(sender_id, 'Money Transferred',
                f'You have transferred {amount} {currency} to {receiver.first_name} {receiver.last_name}',
                type=NotificationType.TRANSACTION_SUCCESS)
-        notify(receiver_id, 'Money Recieved',
-               f'You have recieved {amount} {currency} from {sender.first_name} {sender.last_name}',
+        notify(receiver_id, 'Money Received',
+               f'You have received {amount} {currency} from {sender.first_name} {sender.last_name}',
                type=NotificationType.MONEY_RECIEVED)
     return True
 

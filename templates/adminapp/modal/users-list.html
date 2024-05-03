@@ -10,21 +10,13 @@
                 <div class="col text-center"> <span class="d-block text-4">{{user.first_name}} {{user.last_name}}</span> <span class="text-muted">Admin</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.email}}</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.wallet.balance}} </span> <span class="text-muted">{{request.user.wallet.currency}}</span> </div>
-<!--                <div class="col text-center" hx-get="{% url 'edit-profile' %}" hx-target="#dialog" hx-trigger="click"><button class="btn btn-primary btn-sm" ><i class="fa-solid fas fa-pencil-alt mr-2 fa-sm"></i>-->
-<!--                </button>-->
-<!--                    <button class="btn btn-danger btn-sm" ><i class="fa-solid fas fa-trash mr-2 fa-sm"></i>-->
-<!--                    </button>-->
-<!--                </div>-->
+                    
                 {% else %}
+                    
                 <div class="col text-center"> <span class="d-block text-4 fw-300"><img src="{{ user_profile.profile_picture.url }}" class="avatar avatar-lg mb-2" /></span> <span class="text-muted">@{{user.username}}</span> </div>
                 <div class="col text-center"> <span class="d-block text-4">{{user.first_name}} {{user.last_name}}</span> <span class="text-muted">User</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.email}}</span></div>
                 <div class="col text-center"> <span class="d-sm-block text-3">{{user.wallet.balance}} </span> <span class="text-muted">{{request.user.wallet.currency}}</span> </div>
-<!--                <div class="col text-center" hx-get="{% url 'edit-profile' %}" hx-target="#dialog" hx-trigger="click"><button class="btn btn-primary btn-sm" ><i class="fa-solid fas fa-pencil-alt mr-2 fa-sm"></i>-->
-<!--                </button>-->
-<!--                    <button class="btn btn-danger btn-sm" ><i class="fa-solid fas fa-trash mr-2 fa-sm"></i>-->
-<!--                    </button>-->
-<!--                </div>-->
                 {% endif %}
 
             </div>

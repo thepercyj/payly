@@ -3,7 +3,7 @@
 {% if notifications %}
 <li>
     {% for notif in notifications %}
-    {% include '../modal/notification-item.html' with notification=notif %}
+    {% include '../modal/notification.html' with notification=notif %}
 </li>
 <li class="dropdown-divider mx-n3"></li>
 {% endfor %}
