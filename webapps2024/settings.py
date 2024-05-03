@@ -28,7 +28,7 @@ with open(SECRET_KEY_FILE) as f:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'ec2-34-235-38-137.compute-1.amazonaws.com', '34.235.38.137']
 
