@@ -14,6 +14,7 @@ Step 1: To install the application, first install IntelliJ or Pycharm or Visual 
 - If you want to install Intellij Ultimate Edition, go to the official Intellij [Website](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows)
 - If you also want to install PyCharm Community Version, go to the official PyCharm [Website](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC)
 - If you also want to install Visual Studio, Go to the official VSCode [Website](https://code.visualstudio.com/download)
+
 Download the installer for your operating system (Windows, macOS, or Linux).
 Run the installer and follow the installation prompts.
 
