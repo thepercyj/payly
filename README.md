@@ -40,7 +40,7 @@ Step 5: Since, the production environment is on, you will need to disable it by 
   # SECURITY WARNING: don't run with debug turned on in production!
   DEBUG = True
   
-  ALLOWED_HOSTS = ['127.0.0.1', 'ec2-34-235-38-137.compute-1.amazonaws.com', '34.235.38.137']
+  ALLOWED_HOSTS = ['127.0.0.1', 'example.example.com', 'x.x.x.x']
   ```
 - To this
   ```
