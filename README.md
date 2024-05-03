@@ -9,7 +9,7 @@ Payly was created as a part of the assignment criteria for the module Web Applic
 - API for currency conversion with hardcoded rates (i.e., the rates may be subject to change based on real world)
 
 ## Installation on Local
-Step 1: To install the application, first install IntelliJ or Pycharm or Visual Studio of your liking. you can use the following links provided below to directly access the softwares.
+**Step 1:** To install the application, first install IntelliJ or Pycharm or Visual Studio of your liking. you can use the following links provided below to directly access the softwares.
 
 - If you want to install Intellij Ultimate Edition, go to the official Intellij [Website](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows)
 - If you also want to install PyCharm Community Version, go to the official PyCharm [Website](https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC)
@@ -18,14 +18,14 @@ Step 1: To install the application, first install IntelliJ or Pycharm or Visual 
 Download the installer for your operating system (Windows, macOS, or Linux).
 Run the installer and follow the installation prompts.
 
-Step 2: Download the project using the git clone command or directly from the GUI. 
+**Step 2:** Download the project using the git clone command or directly from the GUI. 
 ```
 git clone https://github.com/thepercyj/webapps2024.git
 ```
-Step 3: Open the project in your preffered IDE environment( IntelliJ, Pycharm or Visual Studio)
+**Step 3:** Open the project in your preffered IDE environment( IntelliJ, Pycharm or Visual Studio)
 
-Step 4: Add a Python Interpreter, the project was built on Python 3.9 so 3.9 or higher is recommended.
-Step 5: Since, the production environment is on, you will need to disable it by doing the following
+**Step 4:** Add a Python Interpreter, the project was built on Python 3.9 so 3.9 or higher is recommended.
+**Step 5:** Since, the production environment is on, you will need to disable it by doing the following
 - navigate to settings.py file in webapps2024 directory, inside the settings file do the following
 - From this 
   ```
@@ -59,7 +59,7 @@ Step 5: Since, the production environment is on, you will need to disable it by 
   ```
   This is to ensure that the static files will be served from the current directory and not from your production directory which is generally located outside your Django project folder.
 
-Step 6: Install pip packages from requirements.txt, navigate from your terminal to main folder where requirements.txt is located and then issue the command below:
+**Step 6:** Install pip packages from requirements.txt, navigate from your terminal to main folder where requirements.txt is located and then issue the command below:
 ```
 pip install -r requirements.txt
 ```
@@ -67,7 +67,7 @@ Also start the thrift server in background as we will need timestamps for our tr
 ```
 python thrift.py &
 ```
-Step 7: Now run the server with either of the following commands, make sure you are issuing this command from the directory where manage.py is located.
+**Step 7:** Now run the server with either of the following commands, make sure you are issuing this command from the directory where manage.py is located.
 -  without SSL
    ```
    python manage.py runserver
@@ -76,7 +76,7 @@ Step 7: Now run the server with either of the following commands, make sure you 
   ```
   python manage.py runserver_plus --cert-file webapps.crt ---key-file webapps.key
   ```
-Step 8: In your browser, navigate to the followings
+**Step 8: ** In your browser, navigate to the followings
 -  without SSL
    ```
    http://127.0.0.1:8000
