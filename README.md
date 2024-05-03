@@ -86,6 +86,7 @@ Step 8: In your browser, navigate to the followings
   https://127.0.0.1:8000
   ```
 ## Installation in Cloud (AWS, Oracle, Digital Ocean etc.)
+
 ### USING RUNSERVER_PLUS
 ( I am assuming that you have opened your http, https, ssh port on your public IP and have managed those settings in your security group.)
 
@@ -178,6 +179,7 @@ Step 12: In your browser, navigate to the followings
   ```
   https://<your-public-ip-or-dns-name-of-instance>
   ```
+
 ### USING DJANGO PRODUCTION SETTINGS WITH NGINX AND GUNICORN
 If you are feeling motivated then, you can deploy it as a production server with some tweaking in the Django project.
 
