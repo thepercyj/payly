@@ -1,4 +1,4 @@
-# Payly
+# Payly ( Web Apps 2024)
 Payly - An Online Payment Service built using Django
 
 ## Description
