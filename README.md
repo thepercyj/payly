@@ -90,40 +90,40 @@ python thrift.py &
 ### USING RUNSERVER_PLUS
 ( I am assuming that you have opened your http, https, ssh port on your public IP and have managed those settings in your security group.)
 
-Step 1: SSH to your instance from your favourite cloud provider
-Step 2: Run updates and upgrades of your linux 
+**Step 1:** SSH to your instance from your favourite cloud provider
+**Step 2:** Run updates and upgrades of your linux 
 ```
 apt update && apt upgrade -y
 ```
-Step 3: Make sure you have git installed, if not you can install using the below commands
+**Step 3:** Make sure you have git installed, if not you can install using the below commands
 ```
 apt install git -y
 ```
-Step 4: Check if you have python venv, development tools installed or not, if not you can install using below command. I am assuming you have python version higher than 3.9 installed.
+**Step 4:** Check if you have python venv, development tools installed or not, if not you can install using below command. I am assuming you have python version higher than 3.9 installed.
 ```
 apt install python3-venv python3-dev -y
 ```
-Step 5: In your home directory, clone the repo.
+**Step 5:** In your home directory, clone the repo.
 ```
 git clone https://github.com/thepercyj/webapps2024.git
 ```
-Step 6: Change directory to the cloned folder
+**Step 6:** Change directory to the cloned folder
 ```
 cd webapps2024
 ```
-Step 7: Crete a new virtual environment.
+**Step 7:** Crete a new virtual environment.
 ```
 python3 -m venv venv
 ```
-Step 8: Activate the virtual environment.
+**Step 8:** Activate the virtual environment.
 ```
 source venv/bin/activate
 ```
-Step 9: Install python requirements
+**Step 9:** Install python requirements
 ```
 pip install requirements.txt
 ```
-Step 10: Since, the production environment is on, you will need to disable it by doing the following
+**Step 10:** Since, the production environment is on, you will need to disable it by doing the following
 - Navigate to settings.py file in webapps2024 directory, inside the settings file do the following
 - From this 
   ```
@@ -161,7 +161,7 @@ Step 10: Since, the production environment is on, you will need to disable it by
   ```
   python thrift.py &
   ```
-Step 11: Now run the server with either of the following commands, make sure you are issuing this command from the directory where manage.py is located.
+**Step 11:** Now run the server with either of the following commands, make sure you are issuing this command from the directory where manage.py is located.
 -  without SSL
    ```
    python manage.py runserver 0.0.0.0:80
@@ -170,7 +170,7 @@ Step 11: Now run the server with either of the following commands, make sure you
   ```
   python manage.py runserver_plus --cert-file webapps.crt ---key-file webapps.key 0.0.0.0:443
   ```
-Step 12: In your browser, navigate to the followings
+**Step 12:** In your browser, navigate to the followings
 -  without SSL
    ```
    http://<your-public-ip-or-dns-name-of-instance>
@@ -183,11 +183,11 @@ Step 12: In your browser, navigate to the followings
 ### USING DJANGO PRODUCTION SETTINGS WITH NGINX AND GUNICORN
 If you are feeling motivated then, you can deploy it as a production server with some tweaking in the Django project.
 
-Step 1: In you same cloud instance, install nginx
+**Step 1:** In you same cloud instance, install nginx
 ```
 apt install nginx
 ```
-Step 2: Navigate to your Django project directory, activate the virtual environment and install gunicorn
+**Step 2:** Navigate to your Django project directory, activate the virtual environment and install gunicorn
 ```
 pip install gunicorn
 ```
@@ -195,7 +195,7 @@ also start the thrift server in background as we will need timestamps for our tr
 ```
 python thrift.py &
 ```
-Step 3: Create the following file and add the following details
+**Step 3:** Create the following file and add the following details
 create a new file name gunicorn.service and gunicorn.socket
 
 gunicorn.service
@@ -240,7 +240,7 @@ ListenStream=/run/gunicorn.sock
 [Install]
 WantedBy=sockets.target
 ```
-Step 4: Copy your ssl key and certificate to /etc/ssl/ directory
+**Step 4:** Copy your ssl key and certificate to /etc/ssl/ directory
 ```
 mkdir -p /etc/ssl/webapps2024/
 ```
@@ -253,7 +253,7 @@ cp webapps.crt /etc/ssl/webapps2024/
 ```
 openssl rsa -in /etc/ssl/webapps2024/webapps2024.key -out /etc/ssl/webapps2024/webapps2024_no_pass.key
 ```
-Step 5: add nginx site file for webapps2024 in /etc/nginx/sites-available/
+**Step 5:** add nginx site file for webapps2024 in /etc/nginx/sites-available/
 Create file webapps
 ```
 vi /etc/nginx/sites-available/webapps
@@ -291,16 +291,16 @@ server {
 }
 
 ```
-Step 6: Unlink default page and link webapps 
+**Step 6:** Unlink default page and link webapps 
 ```
 sudo unlink /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/webapps2024 /etc/nginx/sites-enabled 
 ```
-Step 7: verify nginx configuration
+**Step 7:** verify nginx configuration
 ```
 nginx -t
 ```
-Step 8: Collect static files in /var/www/webapps2024 directory.
+**Step 8:** Collect static files in /var/www/webapps2024 directory.
 ```
 mkdir -p /var/www/webapps2024/static/
 ```
@@ -321,7 +321,7 @@ chown -R ubuntu:www-data /var/www/webapps2024/
 chmod 755 -R /var/www/webapps2024/
 ```
 
-Step 9: Start the server, enable the server at startup and check the server status if its running or not.
+**Step 9:** Start the server, enable the server at startup and check the server status if its running or not.
 ```
 systemctl restart gunicorn
 systemctl enable gunicorn
@@ -330,7 +330,7 @@ systemctl restart nginx
 systemctl enable nginx
 systemctl status nginx
 ```
-Step 10: Browse your ip to check if the project has been deployed or not. 
+**Step 10:** Browse your ip to check if the project has been deployed or not. 
 ```
 https://<your-public-ip-or-dns-name-of-instance>
 ```
