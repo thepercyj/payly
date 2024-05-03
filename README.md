@@ -334,4 +334,4 @@ Step 10: Browse your ip to check if the project has been deployed or not.
 ```
 https://<your-public-ip-or-dns-name-of-instance>
 ```
-Cngratulations !! You Did It. !!! Enjoy using the application.
+Congratulations !! You Did It. !!! Enjoy using the application.
